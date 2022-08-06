@@ -1,1 +1,1 @@
-web: gunicorn escape.wsgi
+web: gunicorn escape.wsgi:application
