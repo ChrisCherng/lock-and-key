@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified Materialize CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+             
+    <title>Lock and Key Escape Rooms</title>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <header>
+        <nav class="nav-wrapper indigo">
+            <div class="container">
+                <a href="" class="brand-logo">Lock and Key Escape Rooms <span class="material-icons">lock_clock</span></a>
+                <a href="" class="sidenav-trigger" data-target="mobile-menu">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">BOOK NOW</a></li>
+                </ul>
+                <ul class="sidenav grey lighten-2" id="mobile-menu">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">BOOK NOW</a></li>                    
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Content -->
+
+    {% block content %}
+
+    {% endblock content %} 
+
+    <!-- Footer -->
+
+
+    <!-- Compiled and minified Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        });
+    </script>
+</body>
+</html>
