@@ -8,8 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!-- Compiled and minified Materialize CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/57f0585427.js" crossorigin="anonymous"></script>
 
              
     <title>Lock and Key Escape Rooms</title>
@@ -18,7 +21,7 @@
     
     <!-- Navigation -->
     <header>
-        <nav class="nav-wrapper indigo">
+        <nav class="nav-wrapper blue darken-4">
             <div class="container">
                 <a href="" class="brand-logo">Lock and Key Escape Rooms <span class="material-icons">lock_clock</span></a>
                 <a href="" class="sidenav-trigger" data-target="mobile-menu">
@@ -44,9 +47,33 @@
     {% endblock content %} 
 
     <!-- Footer -->
+    <footer class="page-footer grey darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 l6">
+                    <h5>Contact</h5>
+                    <p>123 Main Street<br>
+                    Escape Town<br>
+                    Escape City</p>
+                    <p>01632 960063</p>
+                </div>
+                <div class="col s12 l4 offset-l2">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="https://www.facebook.com/" class="grey-text text-lighten-3"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com/" class="grey-text text-lighten-3"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://www.instagram.com/" class="grey-text text-lighten-3"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://www.tiktok.com/" class="grey-text text-lighten-3"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright grey darken-4">
+            <div class="container center-align">&copy; 2022 Lock & Key Escape Rooms</div>
+        </div>
+    </footer>
 
-
-    <!-- Compiled and minified Materialize and JQuery JavaScript -->
+    <!-- Compiled and minified Materialize, JQuery JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>

@@ -1,0 +1,12 @@
+header{
+    background: url(https://res.cloudinary.com/chris-cherng/image/upload/v1660762656/Escape%20Room/cover_jlxgoh.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 600px;
+}
+
+@media screen and (max-width: 670px){
+    header{
+        min-height: 200px;
+    };
+}
