@@ -6,3 +6,6 @@ def RoomList(request):
     # model = Room
     # queryset = Room.objects.filter(status=1)
     return render(request,'index.html')
+
+def ContactForm(request):
+    return render(request,'contact.html')
