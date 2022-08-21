@@ -1,108 +1,70 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Lock & Key Escape Rooms
 
-Welcome ChrisCherng,
+[Lock & Key Escape Rooms on Heroku](https://lock-and-key-escape.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+# Business
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## External Users
 
-`python3 -m http.server`
+## Site Owner
 
-A blue button should appear to click: _Make Public_,
+# User Experience
 
-Another blue button should appear to click: _Open Browser_.
+# Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+# Testing
 
-A blue button should appear to click: _Make Public_,
+## Manual Testing
 
-Another blue button should appear to click: _Open Browser_.
+- Manual use cases have been run to test the functionality of the website.
+- The table below shows the user stories, the associated use cases, the task script followed for the test, and whether this passed or failed.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 001:** As a site user I want to be able to view the different escape rooms offered so that I can assess my options. | PASS |
+| + > **Use Case 001-001:** As a site user I want to be able to view a list of the escape rooms available. | PASS |
+| + + + > **Task 1:** Open the home page -> scroll to the "Our Rooms" section -> the rooms should be visible in cards with a link for further information | PASS |
+| + > **Use Case 001-002:** I want to be able to view a summary of tasks, so that I can prioritise these. | PASS |
+| + + + > **Task 1:** Open the Heroku App -> the prompt "Would you like to view or amend the list?" should be displayed -> type in "View" and press Enter -> the prompt "Which view would you like?" should be displayed -> type "Summary" and press Enter -> a list of overdue tasks, and a list of the next three due tasks (by date) will display. | PASS |
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### "Negative Testing"
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Negative testing was undertaken to determine whether the application could handle unwanted or unexpected user input. The following were performed:
 
-------
 
-## Release History
+### Bugs
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Fixed Bugs
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- 
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Code Validation
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+[W3C HTML Validator](https://validator.w3.org/)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+[JSHint Validator](https://jshint.com/)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[PEP8 Validator](http://pep8online.com/)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+[Python Syntax Checker](https://extendsclass.com/python-tester.html)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+# Credits
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Media
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- Parallax image by <a href="https://unsplash.com/@silas_crioco?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Silas Köhler</a> on <a href="https://unsplash.com/s/photos/lock-key?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+- [Materialize CSS](https://materializecss.com/) including Google Fonts and Icons
+- [Font Awesome](https://fontawesome.com/)
+- [Summernote](https://summernote.org/)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Acknowledgements
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+- [The Code Institute](https://codeinstitute.net/) for their tuition and support throughout.
+- [TimeTrap Escape Rooms](https://www.timetrapescaperooms.com/) for permission to use their images.
+- User "Gaff" on the Code Institute Slack for help with the layout and content of the ReadMe file.

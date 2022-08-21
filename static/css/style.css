@@ -10,3 +10,7 @@ header{
         min-height: 200px;
     };
 }
+
+.parallax{
+    min-height: 500px; 
+}

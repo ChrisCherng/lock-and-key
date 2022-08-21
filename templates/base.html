@@ -29,11 +29,11 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="#">BOOK NOW</a></li>
+                    <li><a href="/booking">BOOK NOW</a></li>
                 </ul>
                 <ul class="sidenav grey lighten-2" id="mobile-menu">
                     <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="#">BOOK NOW</a></li>                    
+                    <li><a href="/booking">BOOK NOW</a></li>                    
                 </ul>
             </div>
         </nav>
@@ -80,6 +80,9 @@
         $(document).ready(function(){
             $('.sidenav').sidenav();
             $('.parallax').parallax();
+            $('.datepicker').datepicker({
+                format: "dd mmm yyyy",
+            });
         });
     </script>
 </body>
