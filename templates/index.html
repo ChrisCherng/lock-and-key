@@ -24,7 +24,7 @@
 
 <!-- Room Cards -->
 
-<div class="container">
+<div class="container" id="our-rooms">
     <div class="row">
         {% for room in room_list %}
             <div class="col s12 m6">
@@ -37,7 +37,7 @@
                         <p>{{ room.excerpt }}</p>
                     </div>
                     <div class="card-action">
-                    <a href="#">MORE INFO</a>
+                    <a href="{% url 'room_detail' room.slug %}"><span class="blue-text text-darken-4">MORE INFO</span></a>
                     </div>
                 </div>
             </div>
