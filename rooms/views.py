@@ -24,5 +24,8 @@ class RoomDetail(View):
 def ContactForm(request):
     return render(request,'contact.html')
 
-def BookingPage(request):
-    return render(request,'booking.html')
+
+class BookingPage(generic.ListView):
+    model = Room
+    queryset = Room.objects.filter(status=1)
+    template_name = 'booking.html'

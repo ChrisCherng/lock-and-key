@@ -7,7 +7,7 @@
         <div class="col s12 l6">
             <h1>{{ room.title }}</h1>
             <p>{{ room.room_description | safe }}</p>
-            <a class="waves-effect waves-light btn-large blue darken-4">Book Now!</a>
+            <a href="/booking" class="waves-effect waves-light btn-large blue darken-4">Book Now!</a>
         </div>
         <div class="col s12 l6">
             <img class="responsive-img" src="{{ room.room_image.url }}">
