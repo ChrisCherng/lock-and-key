@@ -9,7 +9,12 @@ header{
     header{
         min-height: 200px;
     };
+    #logo{
+        display: none;
+    };
 }
+
+
 
 .parallax{
     max-height: 300px; 
