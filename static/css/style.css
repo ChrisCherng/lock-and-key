@@ -14,7 +14,17 @@ header{
     };
 }
 
+.attraction-container{
+    background-size: cover;
+}
 
+.attraction{
+    font-size: 30px;
+}
+
+.attraction-name{
+    margin-top: 0;
+}
 
 .parallax{
     max-height: 300px; 
