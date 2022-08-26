@@ -1,3 +1,5 @@
+/* Heading Styles*/
+
 header{
     background: url(https://res.cloudinary.com/chris-cherng/image/upload/v1660762656/Escape%20Room/cover_jlxgoh.png);
     background-size: cover;
@@ -14,8 +16,23 @@ header{
     };
 }
 
+/* Image Styles*/
+
+.room-image, #intro-image{
+    padding-top: 2em;
+}
+
+/* Titles Styles*/
+
+#experiences-title{
+    margin-top: 0.5em;
+}
+
+/* Attraction Image Styles*/
+
 .attraction-container{
     background-size: cover;
+    background-color: #ffe0b2;
 }
 
 .attraction{
@@ -26,19 +43,38 @@ header{
     margin-top: 0;
 }
 
-.parallax{
-    max-height: 300px; 
-}
+/* Form Styles*/
 
-.input-field input[type=text]:focus + label {
-    color: #0d47a1;
-  }
-
-.input-field input[type=text]:focus {
+.input-field input[type]:focus:not([readonly]),
+.input-field textarea:focus:not([readonly]) {
     border-bottom: 1px solid #0d47a1;
     box-shadow: 0 1px 0 0 #0d47a1;
+}
+
+.input-field input[type]:focus:not([readonly])+label,
+.input-field textarea:focus:not([readonly])+label {
+    color: #0d47a1;
 }
 
 .input-field .prefix.active {
     color: #0d47a1;
 }
+
+/* Tab Styles*/
+
+.tabs .tab a {
+    color: #0d47a1;
+    }
+
+.tabs .tab a:focus.active {
+    color: #0d47a1;
+    background-color: #e3f2fd;
+    }
+
+.tabs .tab a:hover {
+    color: #0d47a1;
+    }
+
+.tabs .indicator {
+    background-color: #0d47a1;
+    }

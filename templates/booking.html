@@ -4,7 +4,6 @@
 
 <div class="container">
     <h1>Book Your Escape Room Experience!</h1>
-    <p>Select the experience from the below</p>
 </div>
 
 <div class="container">
@@ -12,13 +11,13 @@
         <div class="col s12">
             <ul class="tabs">
                 {% for room in room_list %}
-                    <li class="tab col s6"><a href="#{{ room.slug }}">{{ room.title }}</a></li> 
+                    <li class="tab col s3"><a href="#{{ room.slug }}">{{ room.title }}</a></li> 
                 {% endfor %}   
             </ul>
         </div>
         {% for room in room_list %}
             <div class="col s12" id="{{ room.slug }}">
-                <p>Booking info for {{ room.title }}</p>
+                <p>Want to book for our {{ room.title }} escape room? Use the form below to select the day and time you'd like to come!</p>
                 <div class="container">
                     <form action="">
                         <div class="row">
