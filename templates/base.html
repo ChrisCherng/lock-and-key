@@ -84,6 +84,14 @@
             });
             $('ul.tabs').tabs();
         });
+
+        const timeBtns = $('.time-btn');
+            timeBtns.click(function() {
+                $(this).addClass("time-btn-active green")
+                $(this).removeClass("blue darken-3")
+                timeBtns.not(this).addClass("blue darken-3")                
+                timeBtns.not(this).removeClass("time-btn-active green")
+            })
     </script>
 </body>
 </html>

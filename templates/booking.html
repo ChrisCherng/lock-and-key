@@ -19,12 +19,13 @@
             <div class="col s12" id="{{ room.slug }}">
                 <p>Want to book for our {{ room.title }} escape room? Use the form below to select the day and time you'd like to come!</p>
                 <div class="container">
-                    <form action="">
+                    <form method="POST" action="">
+                        {% csrf_token %}
                         <div class="row">
-                            <div class="col s12 l4">
+                            <div class="col s12 l8">
                                 <div class="input-field">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <input type="text" id="name">
+                                    <input type="text" id="name" name="customer_name">
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-field">
@@ -32,26 +33,21 @@
                                     <input type="email" id="email">
                                     <label for="email">Email</label>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col s12 l4">
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
                                     <input type="text" class="datepicker" id="date">
                                     <label for="date">Date</label>
                                 </div>
-                            </div>
-                            <div class="col s12 l7 offset-l1 center-align">
-                                <a class="waves-effect waves-light btn-large disabled">12:30</a>
-                                <a class="waves-effect waves-light btn-large disabled">14:00</a>
-                                <a class="waves-effect waves-light btn-large disabled">15:30</a>
-                                <a class="waves-effect waves-light btn-large disabled">17:00</a>
+                  
+                                {% for times in room.times %}
+                                    <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
+                                {% endfor %}
+
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit
                                     <i class="material-icons right">chevron_right</i>
                                 </button>
                             </div>
@@ -62,6 +58,5 @@
         {% endfor %}    
     </div>
 </div>
-
 
 {% endblock content %}

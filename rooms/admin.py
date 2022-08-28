@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Room
+from .models import Room, Booking
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -8,4 +8,10 @@ class RoomAdmin(SummernoteModelAdmin):
 
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('room_description')
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+
+    list_display = ('room_selected',)
 
