@@ -19,7 +19,7 @@
             <div class="col s12" id="{{ room.slug }}">
                 <p>Want to book for our {{ room.title }} escape room? Use the form below to select the day and time you'd like to come!</p>
                 <div class="container">
-                    <form method="POST" action="">
+                    <form method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col s12 l8">
