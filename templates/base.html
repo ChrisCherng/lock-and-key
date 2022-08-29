@@ -79,8 +79,16 @@
     <script>
         $(document).ready(function(){
             $('.sidenav').sidenav();
+            $('select').formSelect();
             $('.datepicker').datepicker({
-                format: "dd mmm yyyy",
+                format: "yyyy-mm-dd",
+            });
+            $('.timepicker').timepicker({
+                twelveHour: false,
+            });
+            $('.timepicker').on('change', function() {
+                let receivedVal = $(this).val();
+                $(this).val(receivedVal + ":00");
             });
             $('ul.tabs').tabs();
         });

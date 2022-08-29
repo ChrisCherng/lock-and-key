@@ -21,22 +21,42 @@
                 <div class="container">
                     <form method="POST">
                         {% csrf_token %}
-                        <div class="row">
+                        <div class="row"> 
+                            <!-- <div class="input-field col s12">
+                                <select name="room_selected" id="room_selected">
+                                    <option value="" disabled selected>Choose your adventure!</option>
+                                    {% for room in room_list %}
+                                    <option value="{{ room.title }}">{{ room.title }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label>Select your room</label>
+                            </div> -->
+
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" id="room_selected" name="room_selected">
+                                <label for="room_selected">Select Room</label>
+                            </div>                            
                             <div class="col s12 l8">
                                 <div class="input-field">
                                     <i class="material-icons prefix">account_circle</i>
-                                    <input type="text" id="name" name="customer_name">
+                                    <input type="text" id="name" name="name">
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-field">
                                     <i class="material-icons prefix">email</i>
-                                    <input type="email" id="email">
+                                    <input type="email" id="email" name="email">
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="input-field">
                                     <i class="material-icons prefix">date_range</i>
-                                    <input type="text" class="datepicker" id="date">
-                                    <label for="date">Date</label>
+                                    <input type="text" class="datepicker" id="date_selected" name="date_selected">
+                                    <label for="date_selected">Date</label>
+                                </div>
+                                <div class="input-field">
+                                    <i class="material-icons prefix">alarm</i>
+                                    <input type="text" class="timepicker" id="time_selected" name="time_selected">
+                                    <label for="time_selected">Time</label>
                                 </div>
                   
                                 {% for times in room.times %}
