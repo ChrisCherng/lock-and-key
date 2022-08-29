@@ -15,6 +15,9 @@ class Room(models.Model):
     times = ArrayField(models.TimeField(blank=True, null=True, auto_now=False))
     status = models.IntegerField(choices=STATUS, default=0)
 
+    class Meta:
+        ordering = ("-status", )
+
     def __str__(self):
         return self.title
 
@@ -26,6 +29,9 @@ class Booking(models.Model):
     date_selected = models.DateField(blank=True, null=True, auto_now=False)
     time_selected = models.TimeField(blank=True, null=True, auto_now=False)
     booking_type = models.IntegerField(choices=BOOKING_STATUS, default=0)
+
+    class Meta:
+        ordering = ("date_selected", "time_selected")
 
     def __str__(self):
         return f"Booking for {self.room_selected} by {self.name}"
