@@ -86,19 +86,28 @@
             $('.timepicker').timepicker({
                 twelveHour: false,
             });
-            $('.timepicker').on('change', function() {
-                let receivedVal = $(this).val();
-                $(this).val(receivedVal + ":00");
-            });
+            $('select').change(function(){
+                $(this).find("option:selected").each(function(){
+                    var optionValue = $(this).attr("value");
+                    if((optionValue) && ($("#date_selected").val() != "")){
+                        $(".times").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else{
+                        $(".times").hide();
+                    }
+                });
+            }).change();
         });
-
+        
         const timeBtns = $('.time-btn');
             timeBtns.click(function() {
                 $(this).addClass("time-btn-active green")
                 $(this).removeClass("blue darken-3")
                 timeBtns.not(this).addClass("blue darken-3")                
                 timeBtns.not(this).removeClass("time-btn-active green")
-            })
+                $('#time_selected').val($(this).text() + ":00")   
+            });
+        
     </script>
 </body>
 </html>

@@ -38,13 +38,13 @@
                             <input type="text" class="datepicker" id="date_selected" name="date_selected">
                             <label for="date_selected">Date</label>
                         </div>
-                        <div class="input-field">
-                            <i class="material-icons prefix">alarm</i>
+                        <div class="input-field hide">
                             <input type="text" class="timepicker" id="time_selected" name="time_selected">
                             <label for="time_selected">Time</label>
                         </div>
                         {% for room in room_list %}
-                        <div>
+                        <div class="{{ room.id }} times">
+                            <p>Available times for {{ room.title }}:</p>
                             {% for times in room.times %}
                                 <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
                             {% endfor %}

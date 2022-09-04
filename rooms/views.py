@@ -41,11 +41,10 @@ class BookingPage(generic.ListView):
         booking_form.time_selected = request.POST.get('time_selected')
         if booking_form.is_valid():
             booking_form.save()
+            return render(request, 'booking-confirmation.html',)
         else:
-            print(booking_form.errors)
-#            booking_form = BookingForm()
+            return render(request, 'booking.html',)
 
-        return render(
-            request, 'booking.html',
-        )
-            
+      
+class BookingConfirmation(View):
+    template_name = 'booking-confirmation.html'
