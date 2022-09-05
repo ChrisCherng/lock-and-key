@@ -97,6 +97,18 @@
                     }
                 });
             }).change();
+            $('#date_selected').change(function(){
+                //check if value isn't null to prevent running on page load
+                if(this.value){
+                    var optionValue = $('#room_selected').val();
+                    if((optionValue) && ($('this').val() != "")){
+                        $(".times").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else{
+                        $(".times").hide();
+                    }
+                }   
+            }).change();
         });
         
         const timeBtns = $('.time-btn');

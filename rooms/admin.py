@@ -14,5 +14,9 @@ class RoomAdmin(SummernoteModelAdmin):
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
 
-    list_display = ('room_selected', 'name', 'date_selected', 'time_selected', 'booking_type',)
+    list_display = (
+        'room_selected', 'name', 'date_selected',
+        'time_selected', 'booking_type',
+        )
+    list_filter = ('date_selected',)
 
