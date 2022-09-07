@@ -16,7 +16,7 @@
                     <div class="input-field col s12">
                         <select name="room_selected" id="room_selected">
                             <option value="" disabled selected>Choose your adventure!</option>
-                            {% for room in room_list %}
+                            {% for room in data.rooms %}
                             <option value="{{ room.id }}">{{ room.title }}</option>
                             {% endfor %}
                         </select>
@@ -35,19 +35,26 @@
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker" id="date_selected" name="date_selected">
+                            <input type="text" class="datepicker" id="date_selected" name="date_selected" value="{{ form.date_selected.value }}">
                             <label for="date_selected">Date</label>
                         </div>
                         <div class="input-field hide">
                             <input type="text" class="timepicker" id="time_selected" name="time_selected">
                             <label for="time_selected">Time</label>
                         </div>
-                        {% for room in room_list %}
+                        {% for room in data.rooms %}
                         <div class="{{ room.id }} times">
                             <p>Available times for {{ room.title }}:</p>
                             {% for times in room.times %}
-                                <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
-                            {% endfor %}
+                                {% for booking in data.bookings %}
+                                <P>{{ booking.date_selected }}</P>
+                                    {% if booking.time_selected == times and booking.room_selected == room and booking.date_selected == date_selected %}
+                                        <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
+                                    {% elif booking.room_selected == room %}
+                                        <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}                           
                         </div>
                         {% endfor %}
                     </div>
@@ -59,9 +66,12 @@
                         </button>
                     </div>
                 </div>
+                
             </form>
+            <p>{{ form.date_selected.value }}</p>
         </div>                
     </div>
 </div>
+
 
 {% endblock content %}

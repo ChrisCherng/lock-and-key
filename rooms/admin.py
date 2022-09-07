@@ -19,4 +19,3 @@ class BookingAdmin(admin.ModelAdmin):
         'time_selected', 'booking_type',
         )
     list_filter = ('date_selected',)
-

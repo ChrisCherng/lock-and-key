@@ -1,8 +1,8 @@
 """
 Imports the required elements including:
 'models' from the django database
-'ArrayField' from django/postgres in order to contain the possible booking times
-'CloudinaryField' from cloudinary to allow the upload of room images to cloudinary
+'ArrayField' from django/postgres to contain the possible booking times
+'CloudinaryField' for the upload of room images to cloudinary
 """
 from django.db import models
 from django.contrib.auth.models import User
@@ -16,8 +16,8 @@ BOOKING_STATUS = ((0, "Customer Booked"), (1, "Management Blocked"))
 class Room(models.Model):
     """
     Data model to contain the information on the different escape rooms.
-    Includes the possible times for the games that the admin can input and amend.
-    Allows admin to draft the information before going live on the site using the 'status' field.
+    Includes possible times for the games that the admin can input and amend.
+    Allows admin to draft the info before going live using the 'status' field.
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -42,7 +42,8 @@ class Room(models.Model):
 class Booking(models.Model):
     """
     Data model to contain bookings.
-    Allows the admin to make 'management blocked' bookings to make slots unavailable using the 'booking_type" field.
+    Allows the admin to make 'management blocked' bookings to make slots 
+    unavailable using the 'booking_type" field.
     """
     room_selected = models.ForeignKey(Room, on_delete=models.CASCADE)
     name = models.CharField(max_length=80, unique=False)
@@ -60,4 +61,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.room_selected} by {self.name}"
-
