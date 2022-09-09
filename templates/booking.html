@@ -5,10 +5,9 @@
 <div class="container">
     <h1>Book Your Escape Room Experience!</h1>
 </div>
-
 <div class="container">
     <div class="col s12" id="{{ room.slug }}">
-        <p>Want to book for one of our escape room? Use the form below to select the day and time you'd like to come!</p>
+        <p>Pick the room you'd like to play on {{date_picked}}</p>
         <div class="container">
             <form method="POST">
                 {% csrf_token %}
@@ -16,7 +15,7 @@
                     <div class="input-field col s12">
                         <select name="room_selected" id="room_selected">
                             <option value="" disabled selected>Choose your adventure!</option>
-                            {% for room in data.rooms %}
+                            {% for room in rooms %}
                             <option value="{{ room.id }}">{{ room.title }}</option>
                             {% endfor %}
                         </select>
@@ -25,30 +24,30 @@
                     <div class="col s12 l8">
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="text" id="name" name="name">
+                            <input type="text" id="name" name="name" required>
                             <label for="name">Name</label>
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" required>
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker" id="date_selected" name="date_selected" value="{{ form.date_selected.value }}">
+                            <input type="text" class="datepicker" id="date_selected" name="date_selected" required value="{{date_picked}}">
                             <label for="date_selected">Date</label>
                         </div>
                         <div class="input-field hide">
-                            <input type="text" class="timepicker" id="time_selected" name="time_selected">
+                            <input type="text" class="timepicker" id="time_selected" name="time_selected" required>
                             <label for="time_selected">Time</label>
                         </div>
-                        {% for room in data.rooms %}
+                                                
+                        {% for room in rooms %}
                         <div class="{{ room.id }} times">
                             <p>Available times for {{ room.title }}:</p>
                             {% for times in room.times %}
-                                {% for booking in data.bookings %}
-                                <P>{{ booking.date_selected }}</P>
-                                    {% if booking.time_selected == times and booking.room_selected == room and booking.date_selected == date_selected %}
+                                {% for booking in bookings %}
+                                    {% if booking.time_selected == times and booking.room_selected == room %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
                                     {% elif booking.room_selected == room %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
@@ -72,6 +71,5 @@
         </div>                
     </div>
 </div>
-
 
 {% endblock content %}

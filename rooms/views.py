@@ -1,7 +1,7 @@
 """
 Imports the relevant django functions and models
 """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Room, Booking
 from .bookingform import BookingForm
@@ -79,6 +79,25 @@ class BookingPage(generic.ListView):
         else:
             return render(request, 'booking.html',)
 
+
+class BookingPageDate(generic.ListView):
+    context_object_name = "data"
+    template_name = 'booking-date.html'
+
+    def get_queryset(self):
+        myset = {
+            "rooms": Room.objects.all(),
+            "bookings": Booking.objects.all(),
+        }
+        return myset
+
+    def post(self, request, *args, **kwargs):
+        """
+        Returns main booking form
+        """
+        date_picked = request.POST['date_selected']
+        context = {'date_picked': date_picked, "rooms": Room.objects.all(), "bookings": Booking.objects.all()}
+        return render(request, 'booking.html', context)
 
 
 class BookingConfirmation(View):
