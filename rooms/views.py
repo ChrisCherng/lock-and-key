@@ -3,8 +3,8 @@ Imports the relevant django functions and models
 """
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from .models import Room, Booking
-from .bookingform import BookingForm
+from .models import Room, Booking, ContactInfo
+from .bookingform import BookingForm, ContactForm
 
 
 
@@ -38,13 +38,6 @@ class RoomDetail(View):
                 "room": room
             },
         )
-
-
-def ContactForm(request):
-    """
-    Renders the contact form page
-    """
-    return render(request, 'contact.html')
 
 
 class BookingPage(generic.ListView):
@@ -93,16 +86,10 @@ class BookingPageDate(generic.ListView):
 
     def post(self, request, *args, **kwargs):
         if 'booking-date-submit' in request.POST:
-            """
-            Returns main booking form
-            """
             date_picked = request.POST['date_selected']
-            context = {'date_picked': date_picked, "rooms": Room.objects.all(), "bookings": Booking.objects.all()}
+            context = {'date_picked': date_picked, "rooms": Room.objects.filter(status=1), "bookings": Booking.objects.filter(date_selected=date_picked)}
             return render(request, 'booking.html', context)
         elif 'booking-submit' in request.POST:
-            """
-            Posts user booking to the database
-            """
             booking_form = BookingForm(data=request.POST)
             booking_form.room_selected = request.POST.get('room_selected')
             booking_form.name = request.POST.get('name')
@@ -115,8 +102,27 @@ class BookingPageDate(generic.ListView):
             else:
                 return render(request, 'booking.html',)
 
+
 class BookingConfirmation(View):
     """
     Renders the booking confirmation upon successful booking
     """
     template_name = 'booking-confirmation.html'
+
+
+class ContactPage(generic.ListView):
+    """
+    Renders the contact form page
+    """
+    model = ContactInfo
+    queryset = ContactInfo.objects.all()
+    template_name = 'contact.html'
+
+    def post(self, request, *args, **kwargs):
+        contact_form = ContactForm(data=request.POST)
+        contact_form.name = request.POST.get('name')
+        contact_form.email = request.POST.get('email')
+        contact_form.message = request.POST.get('message')
+        if contact_form.is_valid():
+            contact_form.save()
+        return render(request, 'contact.html',)

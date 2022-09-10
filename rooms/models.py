@@ -61,3 +61,13 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.room_selected} by {self.name}"
+
+
+class ContactInfo(models.Model):
+    name = models.CharField(max_length=80, unique=False)
+    email = models.EmailField(max_length=80, unique=False)
+    message = models.TextField()
+    date_sent = models.DateField(auto_now_add=True)
+ 
+    def __str__(self):
+        return self.name

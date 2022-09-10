@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Room, Booking
+from .models import Room, Booking, ContactInfo
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -19,3 +19,12 @@ class BookingAdmin(admin.ModelAdmin):
         'time_selected', 'booking_type',
         )
     list_filter = ('date_selected',)
+
+
+@admin.register(ContactInfo)
+class ContactInfoAdmin(admin.ModelAdmin):
+
+    list_display = (
+        'name', 'date_sent',
+        )
+    list_filter = ('date_sent',)

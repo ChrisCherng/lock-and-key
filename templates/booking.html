@@ -47,11 +47,13 @@
                             <p>Available times for {{ room.title }}:</p>
                             {% for times in room.times %}
                                 {% for booking in bookings %}
-                                    {% if booking.time_selected == times and booking.room_selected == room and booking.date_selected|date:'Y-m-d' == date_picked %}
+                                    {% if booking.room_selected == room and booking.time_selected == times %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
-                                    {% elif booking.room_selected == room and booking.date_selected|date:'Y-m-d' == date_picked %}
+                                    {% else %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
                                     {% endif %}
+                                {% empty %}
+                                    <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
                                 {% endfor %}
                             {% endfor %}                           
                         </div>
