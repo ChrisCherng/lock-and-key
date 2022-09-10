@@ -34,7 +34,7 @@
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">date_range</i>
-                            <input type="text" class="datepicker" id="date_selected" name="date_selected" required value="{{date_picked}}">
+                            <input type="text" class="datepicker" id="date_selected" name="date_selected" value="{{date_picked}}" required>
                             <label for="date_selected">Date</label>
                         </div>
                         <div class="input-field hide">
@@ -47,9 +47,9 @@
                             <p>Available times for {{ room.title }}:</p>
                             {% for times in room.times %}
                                 {% for booking in bookings %}
-                                    {% if booking.time_selected == times and booking.room_selected == room %}
+                                    {% if booking.time_selected == times and booking.room_selected == room and booking.date_selected|date:'Y-m-d' == date_picked %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
-                                    {% elif booking.room_selected == room %}
+                                    {% elif booking.room_selected == room and booking.date_selected|date:'Y-m-d' == date_picked %}
                                         <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
                                     {% endif %}
                                 {% endfor %}
@@ -60,7 +60,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12">
-                        <button class="btn waves-effect waves-light blue darken-4" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light blue darken-4" type="submit" name="booking-submit">Submit
                             <i class="material-icons right">chevron_right</i>
                         </button>
                     </div>

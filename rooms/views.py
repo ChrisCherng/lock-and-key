@@ -92,13 +92,28 @@ class BookingPageDate(generic.ListView):
         return myset
 
     def post(self, request, *args, **kwargs):
-        """
-        Returns main booking form
-        """
-        date_picked = request.POST['date_selected']
-        context = {'date_picked': date_picked, "rooms": Room.objects.all(), "bookings": Booking.objects.all()}
-        return render(request, 'booking.html', context)
-
+        if 'booking-date-submit' in request.POST:
+            """
+            Returns main booking form
+            """
+            date_picked = request.POST['date_selected']
+            context = {'date_picked': date_picked, "rooms": Room.objects.all(), "bookings": Booking.objects.all()}
+            return render(request, 'booking.html', context)
+        elif 'booking-submit' in request.POST:
+            """
+            Posts user booking to the database
+            """
+            booking_form = BookingForm(data=request.POST)
+            booking_form.room_selected = request.POST.get('room_selected')
+            booking_form.name = request.POST.get('name')
+            booking_form.email = request.POST.get('email')
+            booking_form.date_selected = request.POST.get('date_selected')
+            booking_form.time_selected = request.POST.get('time_selected')
+            if booking_form.is_valid():
+                booking_form.save()
+                return render(request, 'booking-confirmation.html',)
+            else:
+                return render(request, 'booking.html',)
 
 class BookingConfirmation(View):
     """
