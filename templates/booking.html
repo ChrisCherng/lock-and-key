@@ -32,8 +32,7 @@
                             <input type="email" id="email" name="email" required>
                             <label for="email">Email</label>
                         </div>
-                        <div class="input-field">
-                            <i class="material-icons prefix">date_range</i>
+                        <div class="input-field hide">
                             <input type="text" class="datepicker" id="date_selected" name="date_selected" value="{{date_picked}}" required>
                             <label for="date_selected">Date</label>
                         </div>
@@ -48,13 +47,10 @@
                             {% for times in room.times %}
                                 {% for booking in bookings %}
                                     {% if booking.room_selected == room and booking.time_selected == times %}
-                                        <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
-                                    {% else %}
-                                        <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
-                                    {% endif %}
-                                {% empty %}
-                                    <a class="waves-effect waves-light btn-large blue darken-3 time-btn" id="{{times | time:'H:i'}}">{{times | time:'H:i'}}</a>
+                                        <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{times | time:'Hi'}}">{{times | time:'H:i'}}</a>
+                                    {% endif %}                                  
                                 {% endfor %}
+                                <a class="waves-effect waves-light btn-large blue darken-3 time-btn {{times | time:'Hi'}}" id="{{times | time:'Hi'}}">{{times | time:'H:i'}}</a>
                             {% endfor %}                           
                         </div>
                         {% endfor %}

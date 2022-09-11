@@ -109,6 +109,14 @@
                     }
                 }   
             }).change();
+
+            var disabledIds = [];
+            $('.disabled').each(function(){
+                disabledIds.push($(this).attr("id"));
+            });
+            $.each(disabledIds, function(index, value){
+                $("." + value).not('.disabled').hide();
+            });
         });
     
 
