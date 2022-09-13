@@ -68,8 +68,37 @@ The site owners are looking to attract potential customers and provide a clear, 
 | + > **Use Case 004-002 (R in CRUD):** As a site user I want any times that have already been booked for a given date and room to be disabled for bookings. | PASS |
 | + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> complete the "name" and "email" fields -> click submit -> repeat these steps and the booked slot should be grey and unclickable. | PASS |
 
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 005:** As a site user I want to be able to book an escape room on an available date and time. | PASS |
+| + > **Use Case 005-001:** As a site user I want to be able to view the booking page. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> the booking page should appear. | PASS |
+| + + + > **Task 2:** Open the home page -> scroll to the "Our Rooms" section -> select "More Info" on any room -> click "Book Now" in the room details page -> select a date -> the booking page should appear. | PASS |
+| + > **Use Case 005-002 (C in CRUD):** As a site user I want to be able to make a booking. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> complete the "name" and "email" fields -> click submit -> a "thank you for booking" page should be visible. | PASS |
+| + > **Use Case 005-003:** As a site user I want the booking form to only submit if I have provided the correct information, to ensure an accurate booking. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "email" field, omitting the "name" field -> click submit -> a prompt should appear to say the "name" field must be completed. | PASS |
+| + + + > **Task 2:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "name" field, omitting the "email" field -> click submit -> a prompt should appear to say the "email" field must be completed. | PASS |
+| + + + > **Task 3:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "name" field -> in the "email" field, add text that does not include the "@" symbol (i.e. not a valid email address) -> click submit -> a prompt should appear to say the "email" field is incorrect. | PASS |
 
 ### Admin Testing
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 005:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | PASS |
+| + > **Use Case 005-001 (R in CRUD):** As a site owner I want to be able to view the escape room information in the administrator dashboard. | PASS |
+| + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display. | PASS |
+| + > **Use Case 005-002 (U in CRUD):** As a site owner I want to be able to amend the escape room information in the administrator dashboard. | PASS |
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 006:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | PASS |
+| + > **Use Case 005-001 (R in CRUD):** As a site owner I want to be able to view the booking information in the administrator dashboard. | PASS |
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 007:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | PASS |
+
 
 ### "Negative Testing"
 
