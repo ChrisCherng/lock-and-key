@@ -1,11 +1,10 @@
 """
 Imports the relevant django functions and models
 """
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Room, Booking, ContactInfo
 from .bookingform import BookingForm, ContactForm
-
 
 
 class RoomList(generic.ListView):
@@ -15,6 +14,7 @@ class RoomList(generic.ListView):
     model = Room
     queryset = Room.objects.filter(status=1)
     template_name = 'index.html'
+
 
 class BookingList(generic.ListView):
     model = Booking
@@ -45,9 +45,7 @@ class BookingPage(generic.ListView):
     Renders the booking form page
     """
     context_object_name = "data"
-    #model = Room
-    #queryset = Room.objects.filter(status=1)
-    template_name = 'booking.html'   
+    template_name = 'booking.html'
 
     def get_queryset(self):
         myset = {
@@ -74,6 +72,10 @@ class BookingPage(generic.ListView):
 
 
 class BookingPageDate(generic.ListView):
+    """
+    Renders the page to select a booking date
+    Passes the booking date to the main booking page    
+    """
     context_object_name = "data"
     template_name = 'booking-date.html'
 
@@ -85,9 +87,19 @@ class BookingPageDate(generic.ListView):
         return myset
 
     def post(self, request, *args, **kwargs):
+        """
+        If the form is submitting the date, passes the date to the next page
+        If the form is submitting the booking, posts info to the database
+        """
         if 'booking-date-submit' in request.POST:
-            date_picked = request.POST['date_selected']
-            context = {'date_picked': date_picked, "rooms": Room.objects.filter(status=1), "bookings": Booking.objects.filter(date_selected=date_picked)}
+            date_picked = request.POST[
+                'date_selected'
+                ]
+            context = {
+                'date_picked': date_picked,
+                "rooms": Room.objects.filter(status=1),
+                "bookings": Booking.objects.filter(date_selected=date_picked)
+                }
             return render(request, 'booking.html', context)
         elif 'booking-submit' in request.POST:
             booking_form = BookingForm(data=request.POST)
@@ -119,6 +131,9 @@ class ContactPage(generic.ListView):
     template_name = 'contact.html'
 
     def post(self, request, *args, **kwargs):
+        """
+        Posts the booking information to the database
+        """
         contact_form = ContactForm(data=request.POST)
         contact_form.name = request.POST.get('name')
         contact_form.email = request.POST.get('email')

@@ -5,7 +5,6 @@ Imports the required elements including:
 'CloudinaryField' for the upload of room images to cloudinary
 """
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 from cloudinary.models import CloudinaryField
 
@@ -64,10 +63,13 @@ class Booking(models.Model):
 
 
 class ContactInfo(models.Model):
+    """
+    Data model to contain the contact requests from users
+    """
     name = models.CharField(max_length=80, unique=False)
     email = models.EmailField(max_length=80, unique=False)
     message = models.TextField()
     date_sent = models.DateField(auto_now_add=True)
- 
+
     def __str__(self):
         return self.name
