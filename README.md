@@ -2,6 +2,8 @@
 
 [Lock & Key Escape Rooms on Heroku](https://lock-and-key-escape.herokuapp.com/)
 
+![The homepage of Lock & Key](https://res.cloudinary.com/chris-cherng/image/upload/v1663594264/Escape%20Room/ReadMe%20Images/main_xuqqjt.png)
+
 This is the website for Lock & Key Escape rooms providing information on the escape room experiences on offer and allowing users to make a booking for a game.
 
 An administration dashboard allows the administrators to create, amend and delete the information on each room, view bookings that have been made, and view any contact requests from users.
@@ -26,25 +28,44 @@ Below is a summary of the features on the Lock & Key Escape Rooms website, split
 
 - All pages in the public site (i.e. not the administration site) include:
     - a navigation bar displaying the name of the company, along with links to contact the administrators and book a room.
+    ![The navigation bar with "Lock & Key" and links to contact and book](https://res.cloudinary.com/chris-cherng/image/upload/v1663592973/Escape%20Room/ReadMe%20Images/navigation_dq6gnr.png)
+
     - a footer with the business address and social media links.
+    ![The footer with the company address, links to social media, and copyright information](https://res.cloudinary.com/chris-cherng/image/upload/v1663592967/Escape%20Room/ReadMe%20Images/footer_wudad0.png)
+
+- All pages are responsive to difference devices including mobile, tablet and desktop.
 - Home Page with:
     - introductory information.
+    ![The homepage showing the introductory messages](https://res.cloudinary.com/chris-cherng/image/upload/v1663592974/Escape%20Room/ReadMe%20Images/homepage_yd0zei.png)
+
     - a list of all currently available escape rooms with a summary of what each one is about.
+    ![The homepage showing two available rooms](https://res.cloudinary.com/chris-cherng/image/upload/v1663592974/Escape%20Room/ReadMe%20Images/homepage-room-cards_obt8if.png)
+
 - Room Detail pages for each available room with:
     - a more detailed description of the room.
     - a link to the booking page.
+    ![The detailed page for Medieval Madness with additional description and booking button](https://res.cloudinary.com/chris-cherng/image/upload/v1663593349/Escape%20Room/ReadMe%20Images/detail-page_zxf7ux.png)
+
 - Contact Page with:
     - a form to contact the site administrators.
+    ![The contact form](https://res.cloudinary.com/chris-cherng/image/upload/v1663594011/Escape%20Room/ReadMe%20Images/contact-page_qq1dej.png)
+
 - Booking Page with:
     - a form to complete the relevant information for the booking.
     - a list of times for the selected day and room which are and are not available to book.
+    ![The booking form](https://res.cloudinary.com/chris-cherng/image/upload/v1663594015/Escape%20Room/ReadMe%20Images/booking-form_gsdg3y.png)
 
 ## Administrators
 
 - Administration Page with:
     - the ability to create, view, update and delete the escape room information visible on the public site.
+    ![an image of the rooms admin page](https://res.cloudinary.com/chris-cherng/image/upload/v1663592366/Escape%20Room/ReadMe%20Images/admin-rooms_ibjaow.png)
+
     - the ability to create, view, update and delete the bookings that have been made by users.
+    ![an image of the bookings admin page](https://res.cloudinary.com/chris-cherng/image/upload/v1663592366/Escape%20Room/ReadMe%20Images/admin-bookings_igvfyg.png)
+
     - the ability to view and delete any contact requests from users from the contact form.
+    ![an image of the contact request admin page](https://res.cloudinary.com/chris-cherng/image/upload/v1663592366/Escape%20Room/ReadMe%20Images/admin-contact_dphbsy.png)
 
 # Technology
 
@@ -70,6 +91,9 @@ Other third-party features have been utilised within this project as follows:
 - [Google Icons](https://developers.google.com/fonts/docs/material_icons)
 - [Materialize CSS](https://materializecss.com/)
 - [Font Awesome](https://fontawesome.com/)
+- [Summernote](https://summernote.org/): text editor for the admin view for rooms
+- [Cloudinary](https://cloudinary.com/): media hosting
+- [Whitenoise](http://whitenoise.evans.io/en/stable/): used to bring static files into Heroku deployed application
 
 ## Documentation Tools
 
@@ -81,14 +105,23 @@ A Trello board was used to assist with the organisation of building the website.
 - In Progress: features where progress has commenced, but not completed.
 - Done: features that have been fully implemented.
 
+![Image of Trello](https://res.cloudinary.com/chris-cherng/image/upload/v1663589179/Escape%20Room/ReadMe%20Images/trello_ln2jm3.png)
+
 Each user story started in the To Do list, and was moved through to In Progress and Done as development continued. This assisted with ensuring the work was performed in an organised manner.
+
+### Google Sheets
+
+Google Sheets was used to assist with mapping out the data models:
+
+![Google sheets with three tables for the different data models](https://res.cloudinary.com/chris-cherng/image/upload/v1663594518/Escape%20Room/ReadMe%20Images/models_qoewju.png)
 
 # Testing
 
 ## Manual Testing
 
-- Manual use cases have been run to test the functionality of the website.
-- The table below shows the user stories, the associated use cases, the task script followed for the test, and whether this passed or failed.
+Manual use cases have been run to test the functionality of the website.
+
+The tables below show the user stories, the associated use cases, the task script followed for the test, and whether this passed or failed. These have been split by user-related and owner-related functionality.
 
 ### User Testing
 
@@ -217,4 +250,5 @@ Negative testing was undertaken to determine whether the application could handl
 
 - [The Code Institute](https://codeinstitute.net/) for their tuition and support throughout.
 - [TimeTrap Escape Rooms](https://www.timetrapescaperooms.com/) for permission to use their images.
+- [Unsplash](https://unsplash.com/photos/Vp3oWLsPOss) lock image by iMattSmart.
 - User "Gaff" on the Code Institute Slack for help with the layout and content of the ReadMe file.
