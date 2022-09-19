@@ -18,10 +18,6 @@ The external users are potential and actual customers of the escape room. They a
 
 The site owners are looking to attract potential customers and provide a clear, simple website for the users.
 
-# User Experience
-
-## User Stories and Use Cases
-
 # Features
 
 Below is a summary of the features on the Lock & Key Escape Rooms website, split between users and administrators.
@@ -51,6 +47,41 @@ Below is a summary of the features on the Lock & Key Escape Rooms website, split
     - the ability to view and delete any contact requests from users from the contact form.
 
 # Technology
+
+## Key Technology Used
+
+The following key technologies and languages have been used as part of this website:
+
+- [HTML 5](https://en.wikipedia.org/wiki/HTML): HyperText Markup Language, the standard markup language for documents designed to be displayed in a web browser
+- [CSS 3](https://en.wikipedia.org/wiki/CSS): style sheet language used for describing the presentation of a document
+- [JavaScript](https://www.javascript.com/): high-level, often just-in-time compiled language
+- [jQuery](https://jquery.com/): JavaScript library
+- [Python](https://www.python.org/): high-level, general-purpose programming language
+- [Django](https://www.djangoproject.com/): Python-based open-source web framework
+- [Postgresql](https://www.postgresql.org/): open-source database to hold back-end data
+- [GitHub](https://github.com/): code repository
+- [GitPod](https://www.gitpod.io/): integrated development environment (IDE)
+- [Heroku](https://www.heroku.com/): deployment of the website and application
+
+## Other Technology Used
+
+Other third-party features have been utilised within this project as follows:
+
+- [Google Icons](https://developers.google.com/fonts/docs/material_icons)
+- [Materialize CSS](https://materializecss.com/)
+- [Font Awesome](https://fontawesome.com/)
+
+## Documentation Tools
+
+### Trello Board
+
+A Trello board was used to assist with the organisation of building the website. This included the user stories representing the key features that should be implemented. These were sorted into the following lists:
+
+- To Do: features where no progress had been started.
+- In Progress: features where progress has commenced, but not completed.
+- Done: features that have been fully implemented.
+
+Each user story started in the To Do list, and was moved through to In Progress and Done as development continued. This assisted with ensuring the work was performed in an organised manner.
 
 # Testing
 
@@ -181,13 +212,6 @@ Negative testing was undertaken to determine whether the application could handl
 [Python Syntax Checker](https://extendsclass.com/python-tester.html)
 
 # Credits
-
-## Media
-
-- [Materialize CSS](https://materializecss.com/) including Google Fonts and Icons
-- [Font Awesome](https://fontawesome.com/)
-- [Summernote](https://summernote.org/)
-
 
 ## Acknowledgements
 
