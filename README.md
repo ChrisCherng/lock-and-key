@@ -18,13 +18,32 @@ The external users are potential and actual customers of the escape room. They a
 
 ## Site Owner
 
-The site owners are looking to attract potential customers and provide a clear, simple website for the users.
+The site owners are looking to attract potential customers and be able to manage customer bookings and contact requests in order to engage to the users.
+
+# User Stories
+
+The following user stories have been created to ensure the goals of the users and owner are met.
+
+| User Story | Goal |
+| --- | --- |
+| **User Story 001:** As a site user I want to be able to view the different escape rooms offered so that I can assess my options. | Finding information on the escape rooms |
+| **User Story 002:** As a site user I want to be able to view more details about each room so that I can find out more. | Finding information on the escape rooms |
+| **User Story 003:** As a site user I want to be able to contact the site owner so that I can ask any questions. | Finding information on the escape rooms |
+| **User Story 004:** As a site user I want to be able to view which rooms are available to book. | Ability to book a room |
+| **User Story 005:** As a site user I want to be able to book an escape room on an available date and time. | Ability to book a room |
+| **User Story 006:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | Attract potential customers |
+| **User Story 007:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | Manage customer bookings |
+| **User Story 008:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | Manage contact requests |
+
+The implementation of these user stories was managed using Trello (see Documentation Tools below).
 
 # Features
 
 Below is a summary of the features on the Lock & Key Escape Rooms website, split between users and administrators.
 
 ## Users
+
+A user is a (potential) customer for Lock & Key. There is no requirement for the user to make an account or sign-in as this may discourage any potential customer from making an enquiry or booking.
 
 - All pages in the public site (i.e. not the administration site) include:
     - a navigation bar displaying the name of the company, along with links to contact the administrators and book a room.
@@ -57,7 +76,9 @@ Below is a summary of the features on the Lock & Key Escape Rooms website, split
 
 ## Administrators
 
-- Administration Page with:
+An administrator is a manager of Lock & Key Escape Rooms. This requires the use of a superuser account username and password, as this is no public-facing information.
+
+- [Administration Page](https://lock-and-key-escape.herokuapp.com/admin/) with:
     - the ability to create, view, update and delete the escape room information visible on the public site.
     ![an image of the rooms admin page](https://res.cloudinary.com/chris-cherng/image/upload/v1663592366/Escape%20Room/ReadMe%20Images/admin-rooms_ibjaow.png)
 
@@ -177,10 +198,10 @@ The tables below show the user stories, the associated use cases, the task scrip
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 005:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | PASS |
-| + > **Use Case 005-001 (R in CRUD):** As a site owner I want to be able to view the escape room information in the administrator dashboard. | PASS |
+| **User Story 006:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | PASS |
+| + > **Use Case 006-001 (R in CRUD):** As a site owner I want to be able to view the escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display. | PASS |
-| + > **Use Case 005-002 (U in CRUD):** As a site owner I want to be able to amend the escape room information in the administrator dashboard. | PASS |
+| + > **Use Case 006-002 (U in CRUD):** As a site owner I want to be able to amend the escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the title field -> click save -> go back into that room information to see the updated title -> check the website that the room has been updated with the new name | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the slug field -> click save -> go back into that room information to see the updated slug -> check the website that the room has been updated with the new slug in the URL | PASS |
 | + + + > **Task 3:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the room description field -> click save -> go back into that room information to see the updated description -> check the website that the room has been updated with the new description | PASS |
@@ -188,36 +209,36 @@ The tables below show the user stories, the associated use cases, the task scrip
 | + + + > **Task 5:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the excerpt field  -> click save -> go back into that room information to see the updated excerpt -> check the website that the room has been updated with the new excerpt on the homepage | PASS |
 | + + + > **Task 6:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the times field - this must be in the format "HH:MM:SS" separated by commas without spaces  -> click save -> go back into that room information to see the updated times -> check the website that the room has been updated with the new times on the booking page | PASS |
 | + + + > **Task 7:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the status field -> click save -> go back into that room information to see the updated status -> check the website that the room has been updated with the new status, that is, if it is now set to "Live" it should be visible on the homepage, if set to "Draft" it should be not be visible on the homepage | PASS |
-| + > **Use Case 005-003 (C in CRUD):** As a site owner I want to be able to create new escape room information in the administrator dashboard. | PASS |
+| + > **Use Case 006-003 (C in CRUD):** As a site owner I want to be able to create new escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on the "Add Room" button at the top right of the window -> complete the information for the title, slug, description, image, excerpt and times (times must be in the format "HH:MM:SS" separated by commas without spaces) -> click save -> go back into that room information to see the new room has been created | PASS |
 | + + + > **Task 2:** Create a new room as per Task 1 above -> in the admin panel, select the room and update the "Status" field to "Live" -> click save -> check the website that the room is now visible on the homepage | PASS |
-| + > **Use Case 005-004 (D in CRUD):** As a site owner I want to be able to delete an escape room in the administrator dashboard. | PASS |
+| + > **Use Case 006-004 (D in CRUD):** As a site owner I want to be able to delete an escape room in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> tick the box next the room to be deleted -> in the Action dropdown menu, select "Delete selected rooms" -> click Go -> click "Yes, I'm sure" -> check the dashboard that the room is no longer appearing -> if the room had a "Live" status, check that the room is no longer visible on the homepage | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on the room to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check the dashboard that the room is no longer appearing -> if the room had a "Live" status, check that the room is no longer visible on the homepage | PASS |
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 006:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | PASS |
-| + > **Use Case 006-001 (R in CRUD):** As a site owner I want to be able to view the booking information in the administrator dashboard. | PASS |
+| **User Story 007:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | PASS |
+| + > **Use Case 007-001 (R in CRUD):** As a site owner I want to be able to view the booking information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details | PASS |
-| + > **Use Case 006-002 (U in CRUD):** As a site owner I want to be able to update the booking information in the administrator dashboard (e.g. if a customer requires a change of booking). | PASS |
+| + > **Use Case 007-002 (U in CRUD):** As a site owner I want to be able to update the booking information in the administrator dashboard (e.g. if a customer requires a change of booking). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the room selected field -> click save -> go back into the booking to see the updated room selected | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the name field -> click save -> go back into the booking to see the updated name | PASS |
 | + + + > **Task 3:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the email field -> click save -> go back into the booking to see the updated email address | PASS |
 | + + + > **Task 4:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the date -> click save -> go back into the booking to see the updated date selected | PASS |
 | + + + > **Task 5:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the time -> update the date -> click save -> go back into the booking to see the updated time selected | PASS |
-| + > **Use Case 006-003 (C in CRUD):** As a site owner I want to be able to create a booking in the administrator dashboard (e.g. if certain times need to be blocked off for staff training). | PASS |
+| + > **Use Case 007-003 (C in CRUD):** As a site owner I want to be able to create a booking in the administrator dashboard (e.g. if certain times need to be blocked off for staff training). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on "Add Booking" in the top right -> fill in the room, name, email, date and time fields (selecting a currently available time) -> set the booking type field to "Management Booked" -> click save -> check that this time for this room is no longer available on the booking page on the website | PASS |
-| + > **Use Case 006-004 (D in CRUD):** As a site owner I want to be able to delete a booking in the administrator dashboard (e.g. if a customer contacts to cancel). | PASS |
+| + > **Use Case 007-004 (D in CRUD):** As a site owner I want to be able to delete a booking in the administrator dashboard (e.g. if a customer contacts to cancel). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> tick on the booking(s) to be deleted -> in the Action dropdown, select "Delete selected bookings" -> click go -> click "Yes, I'm sure" -> check that the booking has been deleted from the list | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on the booking to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the booking has been deleted from the list | PASS |
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 007:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | PASS |
-| + > **Use Case 007-001 (R in CRUD):** As a site owner I want to be able to view the contact forms submitted by users in the administrator dashboard. | PASS |
+| **User Story 008:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | PASS |
+| + > **Use Case 008-001 (R in CRUD):** As a site owner I want to be able to view the contact forms submitted by users in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on a contact item to see the details | PASS |
-| + > **Use Case 007-002 (D in CRUD):** As a site owner I want to be able to delete contact forms submitted by users in the administrator dashboard (e.g. for spam, or if the request has been actioned). | PASS |
+| + > **Use Case 008-002 (D in CRUD):** As a site owner I want to be able to delete contact forms submitted by users in the administrator dashboard (e.g. for spam, or if the request has been actioned). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> tick the form(s) to be deleted -> in the Action dropdown, select "Delete selected contact infos" -> click go -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on the form to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
 
@@ -225,14 +246,19 @@ The tables below show the user stories, the associated use cases, the task scrip
 
 Negative testing was undertaken to determine whether the application could handle unwanted or unexpected user input. The following were performed:
 
+TBC
 
 ### Bugs
+
+TBC
 
 #### Fixed Bugs
 
 - 
 
 ## Code Validation
+
+TBC
 
 [W3C HTML Validator](https://validator.w3.org/)
 
