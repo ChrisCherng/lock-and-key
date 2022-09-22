@@ -47,29 +47,6 @@ class BookingPage(generic.ListView):
     context_object_name = "data"
     template_name = 'booking.html'
 
-    def get_queryset(self):
-        myset = {
-            "rooms": Room.objects.all(),
-            "bookings": Booking.objects.all(),
-        }
-        return myset
-
-    def post(self, request, *args, **kwargs):
-        """
-        Posts user booking to the database
-        """
-        booking_form = BookingForm(data=request.POST)
-        booking_form.room_selected = request.POST.get('room_selected')
-        booking_form.name = request.POST.get('name')
-        booking_form.email = request.POST.get('email')
-        booking_form.date_selected = request.POST.get('date_selected')
-        booking_form.time_selected = request.POST.get('time_selected')
-        if booking_form.is_valid():
-            booking_form.save()
-            return render(request, 'booking-confirmation.html',)
-        else:
-            return render(request, 'booking.html',)
-
 
 class BookingPageDate(generic.ListView):
     """
