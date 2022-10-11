@@ -165,7 +165,7 @@ The tables below show the user stories, the associated use cases, the task scrip
 | + > **Use Case 003-001:** As a site user I want to be able to navigate to a contact page. | PASS |
 | + + + > **Task 1:** Open the home page -> click "Contact Us" in the navigation bar -> a page titled "Get in Touch" with a contact form should be visible. | PASS |
 | + > **Use Case 003-002 (C in CRUD):** As a site user I want to be able to send a message to the site owner. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Contact Us" in the navigation bar -> fill in the "name", "email" and "message" fields -> click submit | PASS |
+| + + + > **Task 1:** Open the home page -> click "Contact Us" in the navigation bar -> fill in the "name", "email" and "message" fields -> click submit -> a confirmation message should be visible | PASS |
 | + > **Use Case 003-003:** As a site user I want the contact form to only submit if I have provided the correct information, to ensure my query can be responded to. | PASS |
 | + + + > **Task 1:** Open the home page -> click "Contact Us" in the navigation bar -> fill in the "email" and "message" fields, omitting the "name" field -> click submit -> a prompt should appear to say the "name" field must be completed. | PASS |
 | + + + > **Task 2:** Open the home page -> click "Contact Us" in the navigation bar -> fill in the "name" and "message" fields, omitting the "email" field -> click submit -> a prompt should appear to say the "email" field must be completed. | PASS |
@@ -240,13 +240,16 @@ The tables below show the user stories, the associated use cases, the task scrip
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on a contact item to see the details | PASS |
 | + > **Use Case 008-002 (D in CRUD):** As a site owner I want to be able to delete contact forms submitted by users in the administrator dashboard (e.g. for spam, or if the request has been actioned). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> tick the form(s) to be deleted -> in the Action dropdown, select "Delete selected contact infos" -> click go -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
-| + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on the form to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
+| + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on the form to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
 
 ### "Negative Testing"
 
-Negative testing was undertaken to determine whether the application could handle unwanted or unexpected user input. The following were performed:
+Negative testing was undertaken to determine whether the application could handle unwanted or unexpected user input. These tests were included within the following Use Cases:
 
-TBC
+- Use Case 003-003: As a site user I want the contact form to only submit if I have provided the correct information, to ensure my query can be responded to.
+- Use Case 005-003: As a site user I want the booking form to only submit if I have provided the correct information, to ensure an accurate booking.
+
+The tasks performed for these use cases all operated as expected and the tests passed.
 
 ### Bugs
 

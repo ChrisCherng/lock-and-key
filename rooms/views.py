@@ -109,7 +109,7 @@ class ContactPage(generic.ListView):
 
     def post(self, request, *args, **kwargs):
         """
-        Posts the booking information to the database
+        Posts the contact request information to the database
         """
         contact_form = ContactForm(data=request.POST)
         contact_form.name = request.POST.get('name')
@@ -117,4 +117,12 @@ class ContactPage(generic.ListView):
         contact_form.message = request.POST.get('message')
         if contact_form.is_valid():
             contact_form.save()
+            return render(request, 'contact-confirmation.html',)
         return render(request, 'contact.html',)
+
+
+class ContactConfirmation(View):
+    """
+    Renders the contact confirmation upon successful completion of the form
+    """
+    template_name = 'contact-confirmation.html'
