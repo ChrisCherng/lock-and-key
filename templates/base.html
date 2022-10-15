@@ -29,11 +29,25 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/booking-date">BOOK NOW</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="/booking-date">BOOK NOW</a></li>
+                        <li><a href="{% url 'my_bookings' %}">My Bookings</a></li>
+                        <li><em>Logged in as: {{ user.get_username }}</em></li>
+                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+                    {% endif %}
                 </ul>
                 <ul class="sidenav grey lighten-2" id="mobile-menu">
                     <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/booking-date">BOOK NOW</a></li>                    
+                    {% if user.is_authenticated %}
+                        <li><a href="/booking-date">BOOK NOW</a></li>
+                        <li><a href="{% url 'my_bookings' %}">My Bookings</a></li>
+                        <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
+                        <li><a><em>Logged in as: {{ user.get_username }}</em></a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}?next={{ request.path }}">Login</a></li>
+                    {% endif %}                    
                 </ul>
             </div>
         </nav>

@@ -1,15 +1,18 @@
 """
 Imports the relevant django functions and models
 """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from .models import Room, Booking, ContactInfo
 from .bookingform import BookingForm, ContactForm
 
 
 class RoomList(generic.ListView):
     """
-    Renders all live rooms onto the hompage
+    Renders all live rooms onto the homepage
     """
     model = Room
     queryset = Room.objects.filter(status=1)
@@ -126,3 +129,34 @@ class ContactConfirmation(View):
     Renders the contact confirmation upon successful completion of the form
     """
     template_name = 'contact-confirmation.html'
+
+
+class BookingsByUser(LoginRequiredMixin, generic.ListView):
+    """ Renders a list of bookings made by the user if they are logged in """
+    model = Booking
+    template_name = 'user-bookings.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Booking.objects.filter(booking_type=0).filter(email=self.request.user).order_by('date_selected')
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
+
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect('my_bookings')

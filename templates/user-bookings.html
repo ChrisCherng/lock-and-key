@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section container" id="mybookings-section">
+
+    <h1>My Bookings</h1>
+
+    <p>Below is a list of your bookings.</p>
+    <p>You can amend or delete them using the buttons below.</p>
+
+    {% if booking_list %}
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Room</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for booking in booking_list %}
+            <tr>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.room_selected }}</td>
+                <td>{{ booking.date_selected }}</td>
+                <td>{{ booking.time_selected }}</td>
+                <td><a href="/amend/{{ booking.id }}" class="waves-effect waves-light btn blue darken-4">Amend Booking</a></td>
+                <td><a href="/delete/{{ booking.id }}" class="waves-effect waves-light btn red darken-4">Delete Booking</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    {% else %}
+      <p>You do not have any bookings currently.</p>
+    {% endif %}
+
+</section>
+{% endblock %}
