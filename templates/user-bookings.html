@@ -8,6 +8,8 @@
     <p>Below is a list of your bookings.</p>
     <p>You can amend or delete them using the buttons below.</p>
 
+    <hr>
+
     {% if booking_list %}
     <table class="responsive-table">
         <thead>
@@ -36,7 +38,7 @@
     </table>
     
     {% else %}
-      <p>You do not have any bookings currently.</p>
+      <p><em>You do not have any bookings currently.</em></p>
     {% endif %}
 
 </section>

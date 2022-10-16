@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import Room, Booking, ContactInfo
-from .bookingform import BookingForm, ContactForm
+from .forms import BookingForm, ContactForm, SignUpForm
 
 
 class RoomList(generic.ListView):
@@ -138,12 +138,12 @@ class BookingsByUser(LoginRequiredMixin, generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return Booking.objects.filter(booking_type=0).filter(email=self.request.user).order_by('date_selected')
+        return Booking.objects.filter(booking_type=0).filter(email=self.request.user.email).order_by('date_selected')
 
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -152,7 +152,7 @@ def signup(request):
             login(request, user)
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
 
 
