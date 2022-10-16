@@ -43,7 +43,7 @@ class RoomDetail(View):
         )
 
 
-class BookingPage(generic.ListView):
+class BookingPage(LoginRequiredMixin, generic.ListView):
     """
     Renders the booking form page
     """
@@ -51,7 +51,7 @@ class BookingPage(generic.ListView):
     template_name = 'booking.html'
 
 
-class BookingPageDate(generic.ListView):
+class BookingPageDate(LoginRequiredMixin, generic.ListView):
     """
     Renders the page to select a booking date
     Passes the booking date to the main booking page    
@@ -95,7 +95,7 @@ class BookingPageDate(generic.ListView):
                 return render(request, 'booking.html',)
 
 
-class BookingConfirmation(View):
+class BookingConfirmation(LoginRequiredMixin, View):
     """
     Renders the booking confirmation upon successful booking
     """
