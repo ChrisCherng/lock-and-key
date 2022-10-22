@@ -23,6 +23,15 @@ class ContactForm(forms.ModelForm):
         fields = ('name', 'email', 'message',)
 
 
+class AmendBookingForm(forms.ModelForm):
+    class Meta:
+        """ Sets fields for booking form """
+        model = Booking
+        fields = (
+            'room_selected', 'name', 'email', 'date_selected', 'time_selected',
+            )
+
+
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=50, help_text='Required')
     last_name = forms.CharField(max_length=50, help_text='Required')

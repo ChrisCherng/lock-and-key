@@ -6,7 +6,8 @@
     <h1>My Bookings</h1>
 
     <p>Below is a list of your bookings.</p>
-    <p>You can amend or delete them using the buttons below.</p>
+    <p>You can amend the time of your booking using the "Amend Time" button.</p>
+    <p>If you would like to cancel, please click the "Cancel Booking" button</p>
 
     <hr>
 
@@ -30,15 +31,15 @@
                 <td>{{ booking.room_selected }}</td>
                 <td>{{ booking.date_selected }}</td>
                 <td>{{ booking.time_selected }}</td>
-                <td><a href="/amend/{{ booking.id }}" class="waves-effect waves-light btn blue darken-4">Amend Booking</a></td>
-                <td><a href="/delete/{{ booking.id }}" class="waves-effect waves-light btn red darken-4">Delete Booking</a></td>
+                <td><a href="/amend/{{ booking.id }}" class="waves-effect waves-light btn blue darken-4">Amend Time</a></td>
+                <td><a href="/delete/{{ booking.id }}" class="waves-effect waves-light btn red darken-4">Cancel Booking</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     
     {% else %}
-      <p><em>You do not have any bookings currently.</em></p>
+      <p><em>You do not currently have any bookings.</em></p>
     {% endif %}
 
 </section>

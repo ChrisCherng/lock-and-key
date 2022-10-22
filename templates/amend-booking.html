@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="section container" id="amend-booking-section">
+
+    <h1>Amend Booking Time</h1>
+
+    <p>Your Current Booking:</p>
+
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Room</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.room_selected }}</td>
+                <td>{{ booking.date_selected }}</td>
+                <td>{{ booking.time_selected }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Other times available for {{ booking.room_selected }} on {{ booking.date_selected }}:</p>
+
+    <div class="row">
+        {% for time in booking.room_selected.times %}
+            {% for booking in bookings %}
+                {% if booking.time_selected == time %}
+                    <a class="waves-effect waves-light btn-large blue darken-3 time-btn disabled" id="{{time | time:'Hi'}}">{{time | time:'H:i'}}</a>
+                {% endif %}                               
+            {% endfor %}
+            <a class="waves-effect waves-light btn-large blue darken-3 time-btn {{time | time:'Hi'}}" id="{{time | time:'Hi'}}">{{time | time:'H:i'}}</a>
+        {% endfor %}
+    </div>
+
+    <form action="amendbooking/{{ booking.id }}" method="POST">
+        {% csrf_token %}
+        <div class="input-field hide">
+            <input type="text" class="timepicker" id="time_selected" name="time_selected" required>
+            <label for="time_selected">Time</label>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light blue darken-4" type="submit" name="booking-amend-submit">Amend Time
+                <i class="material-icons right">chevron_right</i>
+            </button>
+        </div>
+    </form>
+
+</section>
+{% endblock %}

@@ -4,6 +4,7 @@
 <section class="section container" id="register-section">
     <h2>Sign up</h2>
     <p>Fill in the form below to register for an account so that you can make bookings!</p>
+    <p><b>Note</b>: usernames are case-sensitive.</p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

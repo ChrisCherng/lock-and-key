@@ -14,7 +14,7 @@ The Business goals describe the expected user and site owner goals - these drive
 
 ## External Users
 
-The external users are potential and actual customers of the escape room. They are looking for information on the various rooms being offered at Lock & Key, as well as the ability to book a room.
+The external users are potential and actual customers of the escape room. They are looking for information on the various rooms being offered at Lock & Key, as well as the ability to book a room. In addition, they want to be able to manage their bookings.
 
 ## Site Owner
 
@@ -29,11 +29,15 @@ The following user stories have been created to ensure the goals of the users an
 | **User Story 001:** As a site user I want to be able to view the different escape rooms offered so that I can assess my options. | Finding information on the escape rooms |
 | **User Story 002:** As a site user I want to be able to view more details about each room so that I can find out more. | Finding information on the escape rooms |
 | **User Story 003:** As a site user I want to be able to contact the site owner so that I can ask any questions. | Finding information on the escape rooms |
-| **User Story 004:** As a site user I want to be able to view which rooms are available to book. | Ability to book a room |
-| **User Story 005:** As a site user I want to be able to book an escape room on an available date and time. | Ability to book a room |
-| **User Story 006:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | Attract potential customers |
-| **User Story 007:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | Manage customer bookings |
-| **User Story 008:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | Manage contact requests |
+| **User Story 004:** As a site user I want to be able to make an account, log in and log out. | Ability to book a room |
+| **User Story 005:** As a site user I want to be able to view which rooms are available to book. | Ability to book a room |
+| **User Story 006:** As a site user I want to be able to book an escape room on an available date and time. | Ability to book a room |
+| **User Story 007:** As a site user I want to be able to be able to view my bookings. | Ability to manage own bookings |
+| **User Story 008:** As a site user I want to be able to delete bookings I no longer need. | Ability to manage own bookings |
+| **User Story 009:** As a site user I want to be able to amend the timing of my booking. | Ability to manage own |
+| **User Story 010:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | Attract potential customers |
+| **User Story 011:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | Manage customer bookings |
+| **User Story 012:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | Manage contact requests |
 
 The implementation of these user stories was managed using Trello (see Documentation Tools below).
 
@@ -43,16 +47,25 @@ Below is a summary of the features on the Lock & Key Escape Rooms website, split
 
 ## Users
 
-A user is a (potential) customer for Lock & Key. There is no requirement for the user to make an account or sign-in as this may discourage any potential customer from making an enquiry or booking.
+A user is a (potential) customer for Lock & Key. The user will need to register for a (free) account in order to make and manage bookings.
 
 - All pages in the public site (i.e. not the administration site) include:
-    - a navigation bar displaying the name of the company, along with links to contact the administrators and book a room.
-    ![The navigation bar with "Lock & Key" and links to contact and book](https://res.cloudinary.com/chris-cherng/image/upload/v1663592973/Escape%20Room/ReadMe%20Images/navigation_dq6gnr.png)
+    - a navigation bar displaying the name of the company, along with links to contact the administrators and login.
+    ![The navigation bar with "Lock & Key" and links to contact and login](https://res.cloudinary.com/chris-cherng/image/upload/v1666459793/Escape%20Room/ReadMe%20Images/navigation-normal_gakhmy.png)
+
+    - if the user is logged in, the navigation bar displays that they are logged in, and provides additional links to make a booking, My Bookings (to manage bookings), and logout.
+    ![he navigation bar with "Lock & Key" and links to contact, logout, book, manage bookings](https://res.cloudinary.com/chris-cherng/image/upload/v1666459866/Escape%20Room/ReadMe%20Images/navigation-loggedin_wdeczy.png)
 
     - a footer with the business address and social media links.
     ![The footer with the company address, links to social media, and copyright information](https://res.cloudinary.com/chris-cherng/image/upload/v1663592967/Escape%20Room/ReadMe%20Images/footer_wudad0.png)
 
 - All pages are responsive to difference devices including mobile, tablet and desktop.
+
+    ![The homepage on mobile showing the introductory messages](https://res.cloudinary.com/chris-cherng/image/upload/v1666460179/Escape%20Room/ReadMe%20Images/mobile_de13gv.png)
+    
+    - the navigation bar becomes a hamburger menu on mobile devices.
+    ![The sidebar navigation on mobile](https://res.cloudinary.com/chris-cherng/image/upload/v1666464051/Escape%20Room/ReadMe%20Images/mobile-loggedin_kruron.png)
+
 - Home Page with:
     - introductory information.
     ![The homepage showing the introductory messages](https://res.cloudinary.com/chris-cherng/image/upload/v1663592974/Escape%20Room/ReadMe%20Images/homepage_yd0zei.png)
@@ -62,17 +75,30 @@ A user is a (potential) customer for Lock & Key. There is no requirement for the
 
 - Room Detail pages for each available room with:
     - a more detailed description of the room.
-    - a link to the booking page.
+    - if not logged in, a link to sign in or sign up in order to make a booking.
+    - if logged in, a link to the booking page.
     ![The detailed page for Medieval Madness with additional description and booking button](https://res.cloudinary.com/chris-cherng/image/upload/v1663593349/Escape%20Room/ReadMe%20Images/detail-page_zxf7ux.png)
 
 - Contact Page with:
     - a form to contact the site administrators.
     ![The contact form](https://res.cloudinary.com/chris-cherng/image/upload/v1663594011/Escape%20Room/ReadMe%20Images/contact-page_qq1dej.png)
 
+- Registration Page with:
+    - a form to fill in with information in order to register for an account.
+
+- Log In Page with:
+    - a form to fill in log in information in order to access the account.
+
 - Booking Page with:
     - a form to complete the relevant information for the booking.
     - a list of times for the selected day and room which are and are not available to book.
-    ![The booking form](https://res.cloudinary.com/chris-cherng/image/upload/v1663594015/Escape%20Room/ReadMe%20Images/booking-form_gsdg3y.png)
+    - the time selected is highlighted in green.
+    ![The booking form](https://res.cloudinary.com/chris-cherng/image/upload/v1666464254/Escape%20Room/ReadMe%20Images/booking-form_cftqec.png)
+
+- My Bookings Page with:
+    - a list of upcoming bookings for the logged in account.
+    - the ability to cancel or amend the time of upcoming bookings.
+    ![The My Bookings page showing a list of upcoming bookings with buttons to cancel or amend each](https://res.cloudinary.com/chris-cherng/image/upload/v1666464877/Escape%20Room/ReadMe%20Images/my-bookings_kk2aap.png)
 
 ## Administrators
 
@@ -174,34 +200,70 @@ The tables below show the user stories, the associated use cases, the task scrip
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 004:** As a site user I want to be able to view which rooms are available to book. | PASS |
-| + > **Use Case 004-001 (R in CRUD):** As a site user I want to be able to see times for a given room on a given date. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear. | PASS |
-| + + + > **Task 2:** Open the home page -> scroll to the "Our Rooms" section -> select "More Info" on any room -> click "Book Now" in the room details page -> select a date -> select a room from the dropdown menu -> a list of possible times should appear. | PASS |
-| + > **Use Case 004-002 (R in CRUD):** As a site user I want any times that have already been booked for a given date and room to be disabled for bookings. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> complete the "name" and "email" fields -> click submit -> repeat these steps and the booked slot should be grey and unclickable. | PASS |
+| **User Story 004:** As a site user I want to be able to make an account, log in and log out. | PASS |
+| + > **Use Case 004-001:** As a site user I want to be able to make an account. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> complete the required information for username, first name, last name, email, password, and password confirmation -> click "Sign Up" -> it should log you in, demonstrated by the username in the top right | PASS |
+| + > **Use Case 004-002:** As a site user I want the sign up form to only submit if I have provided the correct information, to ensure an accurate booking. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the username field -> click "Sign Up" -> a prompt should appear to say the "username" field must be completed. | PASS |
+| + + + > **Task 2:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the first name field -> click "Sign Up" -> a prompt should appear to say the "first name" field must be completed. | PASS |
+| + + + > **Task 3:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the last name field -> click "Sign Up" -> a prompt should appear to say the "last name" field must be completed. | PASS |
+| + + + > **Task 4:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the email field -> click "Sign Up" -> a prompt should appear to say the "email" field must be completed. | PASS |
+| + + + > **Task 5:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the password field -> click "Sign Up" -> a prompt should appear to say the "password" field must be completed. | PASS |
+| + + + > **Task 6:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, omitting the password confirmation field -> click "Sign Up" -> a prompt should appear to say the "password confirmation" field must be completed. | PASS |
+| + + + > **Task 7:** Open the home page -> click "Login" in the navigation bar -> click the "Sign Up" button -> fill in all fields, and in the email field, put in some text without an @ symbol -> click "Sign Up" -> a prompt should appear to say the email field must contain an @ symbol. | PASS |
+| + > **Use Case 004-003:** As a site user, if I have an account, I want to be able to log in. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Login" in the navigation bar -> fill in the username and password per the account details created before -> click "Login" -> the homepage should be displayed. | PASS |
+| + > **Use Case 004-004:** As a site user, if I have an account, I want to be able to see when I'm logged in. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Login" in the navigation bar -> fill in the username and password per the account details created before -> click "Login" -> the homepage should be displayed -> the text in the top right should show the username, to demonstrate being logged in. | PASS |
+| + > **Use Case 004-005:** As a site user, if I am logged in, I want to be able to log out. | PASS |
+| + + + > **Task 1:** Open the home page -> click "Login" in the navigation bar -> fill in the username and password per the account details created before -> click "Login" -> the homepage should be displayed -> the text in the top right should show the username, to demonstrate being logged in -> click "Logout" in the top right of the navigation bar -> the homepage should be displayed -> there should be no text in the top right navigation bar displaying the username. | PASS |
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 005:** As a site user I want to be able to book an escape room on an available date and time. | PASS |
-| + > **Use Case 005-001:** As a site user I want to be able to view the booking page. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> the booking page should appear. | PASS |
-| + + + > **Task 2:** Open the home page -> scroll to the "Our Rooms" section -> select "More Info" on any room -> click "Book Now" in the room details page -> select a date -> the booking page should appear. | PASS |
-| + > **Use Case 005-002 (C in CRUD):** As a site user I want to be able to make a booking. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> complete the "name" and "email" fields -> click submit -> a "thank you for booking" page should be visible. | PASS |
-| + > **Use Case 005-003:** As a site user I want the booking form to only submit if I have provided the correct information, to ensure an accurate booking. | PASS |
-| + + + > **Task 1:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "email" field, omitting the "name" field -> click submit -> a prompt should appear to say the "name" field must be completed. | PASS |
-| + + + > **Task 2:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "name" field, omitting the "email" field -> click submit -> a prompt should appear to say the "email" field must be completed. | PASS |
-| + + + > **Task 3:** Open the home page -> click "Book Now" in the navigation bar -> select a date and click Next -> select a room from the dropdown -> fill in the "name" field -> in the "email" field, add text that does not include the "@" symbol (i.e. not a valid email address) -> click submit -> a prompt should appear to say the "email" field is incorrect. | PASS |
+| **User Story 005:** As a site user I want to be able to view which rooms are available to book. | PASS |
+| + > **Use Case 005-001 (R in CRUD):** As a site user I want to be able to see times for a given room on a given date. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear. | PASS |
+| + + + > **Task 2:** Open the home page -> log in as per user story 4 above -> scroll to the "Our Rooms" section -> select "More Info" on any room -> click "Book Now" in the room details page -> select a date -> select a room from the dropdown menu -> a list of possible times should appear. | PASS |
+| + > **Use Case 005-002 (R in CRUD):** As a site user I want any times that have already been booked for a given date and room to be disabled for bookings. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> click submit -> repeat these steps and the booked slot should be grey and unclickable. | PASS |
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 006:** As a site user I want to be able to book an escape room on an available date and time. | PASS |
+| + > **Use Case 006-001:** As a site user I want to be able to view the booking page. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "Book Now" in the navigation bar -> select a date -> the booking page should appear. | PASS |
+| + + + > **Task 2:** Open the home page -> log in as per user story 4 above -> scroll to the "Our Rooms" section -> select "More Info" on any room -> click "Book Now" in the room details page -> select a date -> the booking page should appear. | PASS |
+| + > **Use Case 006-002 (C in CRUD):** As a site user I want to be able to make a booking. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "Book Now" in the navigation bar -> select a date -> select a room from the dropdown menu -> a list of possible times should appear -> select one of the times -> click submit -> a "thank you for booking" page should be visible to confirm that the booking is successful. | PASS |
+
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 007:** As a site user I want to be able to view my bookings. | PASS |
+| + > **Use Case 007-001 (R in CRUD):** As a site user I want to be able to view what bookings I have. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "My Bookings" in the navigation bar -> a list of upcoming bookings for this account should be visible | PASS |
+| + + + > **Task 2:** Open the home page -> log in as per user story 4 above -> make a new booking as per user story 6 above -> click "My Bookings" in the navigation bar -> the new booking should appear on the list | PASS |
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 008:** As a site user I want to be able to delete bookings I no longer need. | PASS |
+| + > **Use Case 008-001 (D in CRUD):** As a site user I want to be able to delete the booking I no longer need. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "My Bookings" in the navigation bar -> a list of upcoming bookings for this account should be visible -> click "Cancel" on the booking to be deleted -> a confirmation page should appear to confirm the deletion -> click on "My Bookings" and the booking selected should no longer be on the list. | PASS |
+
+| User Story -> Use Cases -> Tasks | Pass/Fail |
+| --- | --- |
+| **User Story 009:** As a site user I want to be able to amend the timing of my booking. | PASS |
+| + > **Use Case 009-001 (U in CRUD):** As a site user I want to be able to amend the timing of the booking. | PASS |
+| + + + > **Task 1:** Open the home page -> log in as per user story 4 above -> click "My Bookings" in the navigation bar -> a list of upcoming bookings for this account should be visible -> click "Amend Time" on the booking to be amended -> select the updated time for the booking -> click "Amend Time" -> a confirmation page should appear to confirm that the update has been made -> click on "My Bookings" and the booking selected should have the updated time. | PASS |
 
 ### Admin Testing
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 006:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | PASS |
-| + > **Use Case 006-001 (R in CRUD):** As a site owner I want to be able to view the escape room information in the administrator dashboard. | PASS |
+| **User Story 010:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | PASS |
+| + > **Use Case 010-001 (R in CRUD):** As a site owner I want to be able to view the escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display. | PASS |
-| + > **Use Case 006-002 (U in CRUD):** As a site owner I want to be able to amend the escape room information in the administrator dashboard. | PASS |
+| + > **Use Case 010-002 (U in CRUD):** As a site owner I want to be able to amend the escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the title field -> click save -> go back into that room information to see the updated title -> check the website that the room has been updated with the new name | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the slug field -> click save -> go back into that room information to see the updated slug -> check the website that the room has been updated with the new slug in the URL | PASS |
 | + + + > **Task 3:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the room description field -> click save -> go back into that room information to see the updated description -> check the website that the room has been updated with the new description | PASS |
@@ -209,36 +271,36 @@ The tables below show the user stories, the associated use cases, the task scrip
 | + + + > **Task 5:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the excerpt field  -> click save -> go back into that room information to see the updated excerpt -> check the website that the room has been updated with the new excerpt on the homepage | PASS |
 | + + + > **Task 6:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the times field - this must be in the format "HH:MM:SS" separated by commas without spaces  -> click save -> go back into that room information to see the updated times -> check the website that the room has been updated with the new times on the booking page | PASS |
 | + + + > **Task 7:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on one of the rooms and the detailed information should display -> make a change to the status field -> click save -> go back into that room information to see the updated status -> check the website that the room has been updated with the new status, that is, if it is now set to "Live" it should be visible on the homepage, if set to "Draft" it should be not be visible on the homepage | PASS |
-| + > **Use Case 006-003 (C in CRUD):** As a site owner I want to be able to create new escape room information in the administrator dashboard. | PASS |
+| + > **Use Case 010-003 (C in CRUD):** As a site owner I want to be able to create new escape room information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on the "Add Room" button at the top right of the window -> complete the information for the title, slug, description, image, excerpt and times (times must be in the format "HH:MM:SS" separated by commas without spaces) -> click save -> go back into that room information to see the new room has been created | PASS |
 | + + + > **Task 2:** Create a new room as per Task 1 above -> in the admin panel, select the room and update the "Status" field to "Live" -> click save -> check the website that the room is now visible on the homepage | PASS |
-| + > **Use Case 006-004 (D in CRUD):** As a site owner I want to be able to delete an escape room in the administrator dashboard. | PASS |
+| + > **Use Case 010-004 (D in CRUD):** As a site owner I want to be able to delete an escape room in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> tick the box next the room to be deleted -> in the Action dropdown menu, select "Delete selected rooms" -> click Go -> click "Yes, I'm sure" -> check the dashboard that the room is no longer appearing -> if the room had a "Live" status, check that the room is no longer visible on the homepage | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Rooms" section in the sidebar -> a list of all rooms should be visible -> click on the room to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check the dashboard that the room is no longer appearing -> if the room had a "Live" status, check that the room is no longer visible on the homepage | PASS |
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 007:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | PASS |
-| + > **Use Case 007-001 (R in CRUD):** As a site owner I want to be able to view the booking information in the administrator dashboard. | PASS |
+| **User Story 011:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | PASS |
+| + > **Use Case 011-001 (R in CRUD):** As a site owner I want to be able to view the booking information in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details | PASS |
-| + > **Use Case 007-002 (U in CRUD):** As a site owner I want to be able to update the booking information in the administrator dashboard (e.g. if a customer requires a change of booking). | PASS |
+| + > **Use Case 011-002 (U in CRUD):** As a site owner I want to be able to update the booking information in the administrator dashboard (e.g. if a customer requires a change of booking). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the room selected field -> click save -> go back into the booking to see the updated room selected | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the name field -> click save -> go back into the booking to see the updated name | PASS |
 | + + + > **Task 3:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the email field -> click save -> go back into the booking to see the updated email address | PASS |
 | + + + > **Task 4:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the details -> update the date -> click save -> go back into the booking to see the updated date selected | PASS |
 | + + + > **Task 5:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on a booking to see the time -> update the date -> click save -> go back into the booking to see the updated time selected | PASS |
-| + > **Use Case 007-003 (C in CRUD):** As a site owner I want to be able to create a booking in the administrator dashboard (e.g. if certain times need to be blocked off for staff training). | PASS |
+| + > **Use Case 011-003 (C in CRUD):** As a site owner I want to be able to create a booking in the administrator dashboard (e.g. if certain times need to be blocked off for staff training). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on "Add Booking" in the top right -> fill in the room, name, email, date and time fields (selecting a currently available time) -> set the booking type field to "Management Booked" -> click save -> check that this time for this room is no longer available on the booking page on the website | PASS |
-| + > **Use Case 007-004 (D in CRUD):** As a site owner I want to be able to delete a booking in the administrator dashboard (e.g. if a customer contacts to cancel). | PASS |
+| + > **Use Case 011-004 (D in CRUD):** As a site owner I want to be able to delete a booking in the administrator dashboard (e.g. if a customer contacts to cancel). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> tick on the booking(s) to be deleted -> in the Action dropdown, select "Delete selected bookings" -> click go -> click "Yes, I'm sure" -> check that the booking has been deleted from the list | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Bookings" section in the sidebar -> a list of all bookings should be visible -> click on the booking to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the booking has been deleted from the list | PASS |
 
 | User Story -> Use Cases -> Tasks | Pass/Fail |
 | --- | --- |
-| **User Story 008:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | PASS |
-| + > **Use Case 008-001 (R in CRUD):** As a site owner I want to be able to view the contact forms submitted by users in the administrator dashboard. | PASS |
+| **User Story 012:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | PASS |
+| + > **Use Case 012-001 (R in CRUD):** As a site owner I want to be able to view the contact forms submitted by users in the administrator dashboard. | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on a contact item to see the details | PASS |
-| + > **Use Case 008-002 (D in CRUD):** As a site owner I want to be able to delete contact forms submitted by users in the administrator dashboard (e.g. for spam, or if the request has been actioned). | PASS |
+| + > **Use Case 012-002 (D in CRUD):** As a site owner I want to be able to delete contact forms submitted by users in the administrator dashboard (e.g. for spam, or if the request has been actioned). | PASS |
 | + + + > **Task 1:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> tick the form(s) to be deleted -> in the Action dropdown, select "Delete selected contact infos" -> click go -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
 | + + + > **Task 2:** Navigate to the admin site (homepage/admin) -> login using superuser account -> click on the "Contact Infos" section in the sidebar -> a list of all contact form submissions should be visible -> click on the form to be deleted -> click the "Delete" button at the bottom of the page -> click "Yes, I'm sure" -> check that the selected forms been deleted from the list | PASS |
 
@@ -247,7 +309,7 @@ The tables below show the user stories, the associated use cases, the task scrip
 Negative testing was undertaken to determine whether the application could handle unwanted or unexpected user input. These tests were included within the following Use Cases:
 
 - Use Case 003-003: As a site user I want the contact form to only submit if I have provided the correct information, to ensure my query can be responded to.
-- Use Case 005-003: As a site user I want the booking form to only submit if I have provided the correct information, to ensure an accurate booking.
+- Use Case 004-002: As a site user I want the sign up form to only submit if I have provided the correct information, to ensure an accurate booking.
 
 The tasks performed for these use cases all operated as expected and the tests passed.
 
@@ -281,3 +343,4 @@ TBC
 - [TimeTrap Escape Rooms](https://www.timetrapescaperooms.com/) for permission to use their images.
 - [Unsplash](https://unsplash.com/photos/Vp3oWLsPOss) lock image by iMattSmart.
 - User "Gaff" on the Code Institute Slack for help with the layout and content of the ReadMe file.
+- My partner Scott for his ongoing support throughout the course.
