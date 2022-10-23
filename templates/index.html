@@ -10,7 +10,7 @@
             <p>Please login or sign-up for a free account to book our experiences.</p>
         </div>
         <div class="col s12 m4 offset-l1 hide-on-small-only">
-            <img class="responsive-img" id="intro-image" src="https://res.cloudinary.com/chris-cherng/image/upload/v1660850670/Escape%20Room/intro_wb7vbh.jpg" alt="">
+            <img class="responsive-img" id="intro-image" src="https://res.cloudinary.com/chris-cherng/image/upload/v1660850670/Escape%20Room/intro_wb7vbh.jpg" alt="a lock on a yellow door">
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
 <div class="container">
     <div class="row valign-wrapper">
         <div class="col s12 m4 hide-on-small-only">
-            <img class="responsive-img" src="https://res.cloudinary.com/chris-cherng/image/upload/v1661256479/Escape%20Room/victory_ohppuf.png" alt="">
+            <img class="responsive-img" src="https://res.cloudinary.com/chris-cherng/image/upload/v1661256479/Escape%20Room/victory_ohppuf.png" alt="a team of four people cheering in front of a brick wall">
         </div>
         <div class="col s12 m7 offset-l1">
             <h2 id="experiences-title">Our Experiences</h2>
@@ -78,10 +78,10 @@
             <div class="col s12 m6">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{ room.room_image.url }}">
-                        <span class="card-title">{{ room.title }}</span>
+                        <img src="{{ room.room_image.url }}" alt="an image of {{ room.title }}">
                     </div>
                     <div class="card-content">
+                        <span class="card-title"><b>{{ room.title }}</b></span>
                         <p>{{ room.excerpt }}</p>
                     </div>
                     <div class="card-action">

@@ -13,8 +13,7 @@
     <script src="https://kit.fontawesome.com/57f0585427.js" crossorigin="anonymous"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/chris-cherng/image/upload/v1663591771/Escape%20Room/lock_clock_r8kio0.svg">
-             
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/chris-cherng/image/upload/v1663591771/Escape%20Room/lock_clock_r8kio0.svg">             
     <title>Lock and Key Escape Rooms</title>
 </head>
 <body>
@@ -89,14 +88,18 @@
     <!-- Compiled and minified Materialize, JQuery JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- JQuery elements -->
     <script>
-
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() +1);
+    
+        // sets variable for tomorrow's date used in the datepicker
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() +1);
 
         $(document).ready(function(){
+
+            // activates various MaterializeCSS elements
             $('.sidenav').sidenav();
-            $('.modal').modal();
             $('select').formSelect();
             $('.datepicker').datepicker({
                 format: "yyyy-mm-dd",
@@ -105,6 +108,8 @@
             $('.timepicker').timepicker({
                 twelveHour: false,
             });
+
+            // shows only time buttons for selected room
             $('select').change(function(){
                 $(this).find("option:selected").each(function(){
                     var optionValue = $(this).attr("value");
@@ -117,6 +122,7 @@
                 });
             }).change();
 
+            // disables time button if there is a booking
             var disabledIds = [];
             $('.disabled').each(function(){
                 disabledIds.push($(this).attr("id"));
@@ -125,14 +131,15 @@
                 $("." + value).not('.disabled').hide();
             });
         });
-  
+
+        // sets time buttons to blue if not selected, green if selected
         const timeBtns = $('.time-btn');
             timeBtns.click(function() {
-                $(this).addClass("time-btn-active green")
-                $(this).removeClass("blue darken-3")
-                timeBtns.not(this).addClass("blue darken-3")                
-                timeBtns.not(this).removeClass("time-btn-active green")
-                $('#time_selected').val($(this).text() + ":00")   
+                $(this).addClass("time-btn-active green");
+                $(this).removeClass("blue darken-3");
+                timeBtns.not(this).addClass("blue darken-3");                
+                timeBtns.not(this).removeClass("time-btn-active green");
+                $('#time_selected').val($(this).text() + ":00");   
             });
 
     </script>

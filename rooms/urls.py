@@ -18,6 +18,10 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('delete/<booking_id>', views.delete_booking, name='delete'),
     path('amend/<booking_id>', views.amend_booking, name='amend'),
-    path('amend/amendbooking/<booking_id>', views.amend_booking_time, name='amend_time'),
+    path(
+        'amend/amendbooking/<booking_id>',
+        views.amend_booking_time,
+        name='amend_time'
+        ),
     path('<slug:slug>/', views.RoomDetail.as_view(), name='room_detail'),
 ]

@@ -2,13 +2,17 @@
 
 {% block content %}
 <section class="section container" id="register-section">
-    <h2>Sign up</h2>
-    <p>Fill in the form below to register for an account so that you can make bookings!</p>
-    <p><b>Note</b>: usernames are case-sensitive.</p>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn blue darken-4" type="submit" name="register-submit" id="register-submit-btn" value="register">Sign up</button>
-    </form>
+    <div class="row">
+        <div class="col s12 m8">
+            <h2>Sign up</h2>
+            <p>Fill in the form below to register for an account so that you can make bookings!</p>
+            <p><b>Note</b>: usernames are case-sensitive.</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn blue darken-4" type="submit" name="register-submit" id="register-submit-btn" value="register">Sign up</button>
+            </form>
+        </div>
+    </div>
 </section>
 {% endblock %}

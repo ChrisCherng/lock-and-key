@@ -24,6 +24,7 @@ class ContactForm(forms.ModelForm):
 
 
 class AmendBookingForm(forms.ModelForm):
+    """ Form to amend bookings """
     class Meta:
         """ Sets fields for booking form """
         model = Booking
@@ -33,10 +34,15 @@ class AmendBookingForm(forms.ModelForm):
 
 
 class SignUpForm(UserCreationForm):
+    """ Form to register for an account """
     first_name = forms.CharField(max_length=50, help_text='Required')
     last_name = forms.CharField(max_length=50, help_text='Required')
     email = forms.EmailField(max_length=200, help_text='Required')
 
     class Meta:
+        """ Sets fields for the registration form """
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
+        fields = (
+            'username', 'first_name', 'last_name',
+            'email', 'password1', 'password2',
+            )

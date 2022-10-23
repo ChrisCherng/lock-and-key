@@ -323,17 +323,109 @@ TBC
 
 ## Code Validation
 
-TBC
-
+### HTML 
 [W3C HTML Validator](https://validator.w3.org/)
 
+| Page | Exceptions | Comments |
+| --- | --- | --- |
+| Homepage | None | N/A |
+| Room Detail | None | N/A |
+| Contact | None | N/A |
+| Contact Confirmation | None | N/A |
+| Register Account | Tag closures in row 58 | The relevant tags are all closed, no exception identified |
+| Log In | None | N/A |
+| Booking Page - Date Selection | None | N/A |
+| Booking Page - Time Selection | Duplicate IDs | Due to method of disabling booked slots. Functionality works as intended. |
+| Booking Confirmation | None | N/A |
+| My Bookings | None | N/A |
+| My Bookings - Amend Timing | Duplicate IDs | Due to method of disabling booked slots. Functionality works as intended. |
+| My Bookings - Amend Timing Confirmation | None | N/A |
+| My Bookings - Cancellation Confirmation | None | N/A |
+
+### CSS
 [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+The majority of the CSS styling uses MaterializeCSS. An additional style.css file has been used to override any relevant stylings. No errors found in the style.css file.
+
+### JavaScript
 [JSHint Validator](https://jshint.com/)
 
+JavaScript has been used within the base.html template file for a number of jQuery elements. The validator provides the following metrics:
+
+- There are 6 functions in this file.
+- Function with the largest signature take 2 arguments, while the median is 0.
+- Largest function has 9 statements in it, while the median is 3.
+- The most complex function has a cyclomatic complexity value of 3 while the median is 1.
+
+No errors or warnings were raised (note: the "new JavaScript features (ES6)" is turned on in the Configure menu).
+
+### Python
 [PEP8 Validator](http://pep8online.com/)
 
+The PEP8 Online validator is unavailable at the time of writing. The pycodestyle linter was used to detect any PEP8 issues in python files. This has been used on python files which have been written bespoke for this project - standard python files (e.g. those included withing standard Django) have not been tested.
+
+- admin.py
+- forms.py
+- models.py
+- urls.py
+- views.py
+
+No exceptions have been identified for these files in the "Problems" tab, except for views.py which includes the following item:
+
+- *class does not have an 'object' member*: this test is looking to detect the 'objects' attribute in the class-based data models, and is created automatically by Django. However pylint cannot trace the Django code creating the 'objects' and there is providing the exception message. As the object is created, no issues noted with this item.
+
 [Python Syntax Checker](https://extendsclass.com/python-tester.html)
+
+The Python files above were pasted into the the Python Syntax checker. No exceptions were noted except for the models.py where syntax errors were noted for the use of Python f-strings. These are a relatively new addition to Python and have not been implemented in this check. Therefore, no issues have been identified.
+
+## General Validator Checks
+
+### [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+Lighthouse is a Google open-source, automated tool for improving the quality of web pages, providing metrics on the pages. The key pages on Lock & Key were tested with the following results:
+
+Desktop:
+
+| Page | Performance | Accessibility | Best Practises | SEO |
+| --- | --- | --- | --- | --- |
+| Homepage | 72 | 97 | 83 | 80 |
+| Contact | 97 | 94 | 83 | 78 |
+| Room Detail | 86 | 97 | 83 | 80 |
+| Registration | 97 | 94 | 83 | 78 |
+| Log In | 97 | 94 | 83 | 78 |
+| Booking Date | 97 | 94 | 83 | 78 |
+| Booking Time | 97 | 94 | 83 | 78 |
+| My Bookings | 97 | 97 | 83 | 78 |
+
+Mobile:
+
+| Page | Performance | Accessibility | Best Practises | SEO |
+| --- | --- | --- | --- | --- |
+| Homepage | 74 | 97 | 83 | 78 |
+| Contact | 77 | 94 | 83 | 75 |
+| Room Detail | 74 | 97 | 83 | 78 |
+| Registration | 77 | 94 | 83 | 78 |
+| Log In | 76 | 94 | 83 | 78 |
+| Booking Date | 98 | 94 | 83 | 75 |
+| Booking Time | 99 | 94 | 83 | 75 |
+| My Bookings | 76 | 96 | 83 | 76 |
+
+These scores show there are no vital or significant issues with the performance, accessibility, practise or SEO of the website.
+
+### [Wave](https://wave.webaim.org/)
+Wave is an evaluation tool that helps authors make their web content more accessible to individuals with disabilities. The key pages on Lock & Key were tested with the following results:
+
+| Page | Errors | Contract Errors | Notes |
+| --- | --- | --- | --- |
+| Homepage | 0 | 0 |  |
+| Contact | 0 | 3 | Contrast errors relate to the field names when unclicked as they are a light grey. The icons and colouring of the text when clicked ensure this continues to be accessible. |
+| Room Detail | 0 | 0 |  |
+| Registration | 0 | 6 | Contrast errors relate to the field names when unclicked as they are a light grey per Materialize themes. |
+| Log In | 0 | 2 | Contrast errors relate to the field names when unclicked as they are a light grey per Materialize themes. |
+| Booking Date | 1 | 1 | Error relates to an empty "Next" button - however this has the "Next" text in, therefore no exception. Contrast errors relate to the field names when unclicked as they are a light grey per Materialize themes. |
+| Booking Time | 2 | 1 | The first error relates to an empty form label for the dropdown for room selection - however this is correct using Materialize CSS. The second error relates to an empty "Submit" button - however this has the "Submit" text in, therefore no exception. Contrast errors relate to the field names when unclicked as they are a light grey per Materialize themes. |
+| My Bookings | 0 | 0 |  |
+
+No significant accessibility issues identified from the testing performed.
 
 # Credits
 

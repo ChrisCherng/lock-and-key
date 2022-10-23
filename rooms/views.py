@@ -1,12 +1,11 @@
 """
 Imports the relevant django functions and models
 """
+from datetime import date
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from datetime import date
 from .models import Room, Booking, ContactInfo
 from .forms import BookingForm, ContactForm, SignUpForm
 
@@ -21,6 +20,7 @@ class RoomList(generic.ListView):
 
 
 class BookingList(generic.ListView):
+    """ Renders the booking form """
     model = Booking
     queryset = Booking.objects.all()
     template_name = 'booking.html'
@@ -31,7 +31,7 @@ class RoomDetail(View):
     Renders the full information for each room
     on a separate page
     """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
         """
         Gets information on rooms from database
         """
@@ -55,7 +55,7 @@ class BookingPage(LoginRequiredMixin, generic.ListView):
 class BookingPageDate(LoginRequiredMixin, generic.ListView):
     """
     Renders the page to select a booking date
-    Passes the booking date to the main booking page    
+    Passes the booking date to the main booking page
     """
     context_object_name = "data"
     template_name = 'booking-date.html'
@@ -67,7 +67,7 @@ class BookingPageDate(LoginRequiredMixin, generic.ListView):
         }
         return myset
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         """
         If the form is submitting the date, passes the date to the next page
         If the form is submitting the booking, posts info to the database
@@ -111,7 +111,7 @@ class ContactPage(generic.ListView):
     queryset = ContactInfo.objects.all()
     template_name = 'contact.html'
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         """
         Posts the contact request information to the database
         """
@@ -140,10 +140,17 @@ class BookingsByUser(LoginRequiredMixin, generic.ListView):
     today = date.today()
 
     def get_queryset(self):
-        return Booking.objects.filter(booking_type=0).filter(email=self.request.user.email).filter(date_selected__gt=date.today()).order_by('date_selected')
+        return Booking.objects.filter(
+            booking_type=0
+            ).filter(
+                email=self.request.user.email
+                ).filter(
+                    date_selected__gt=date.today()
+                    ).order_by('date_selected')
 
 
 def signup(request):
+    """ Posts the registration infromation to the database """
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -159,22 +166,28 @@ def signup(request):
 
 
 def delete_booking(request, booking_id):
+    """ deletes the selected booking from the database """
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
     return render(request, 'delete-booking-confirmation.html',)
 
 
 def amend_booking(request, booking_id):
+    """ Renders the amend booking time page """
     booking = get_object_or_404(Booking, id=booking_id)
     context = {
         'booking': booking,
-        'bookings': Booking.objects.filter(date_selected=booking.date_selected).filter(room_selected=booking.room_selected),
+        'bookings': Booking.objects.filter(
+            date_selected=booking.date_selected
+            ).filter(
+                room_selected=booking.room_selected),
     }
 
     return render(request, 'amend-booking.html', context)
 
 
 def amend_booking_time(request, booking_id):
+    """ Updates the timing of selected booking in the database """
     new_time = request.POST['time_selected']
     booking = Booking.objects.get(id=booking_id)
     booking.time_selected = new_time

@@ -6,7 +6,6 @@ Imports the required elements including:
 """
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
-from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Live"))
@@ -36,13 +35,13 @@ class Room(models.Model):
         ordering = ("-status", )
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
 
 class Booking(models.Model):
     """
     Data model to contain bookings.
-    Allows the admin to make 'management blocked' bookings to make slots 
+    Allows the admin to make 'management blocked' bookings to make slots
     unavailable using the 'booking_type" field.
     """
     room_selected = models.ForeignKey(Room, on_delete=models.CASCADE)
@@ -73,4 +72,4 @@ class ContactInfo(models.Model):
     date_sent = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
