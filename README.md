@@ -315,16 +315,21 @@ The tasks performed for these use cases all operated as expected and the tests p
 
 ### Bugs
 
-TBC
+No unfixed bugs have been currently identified in the code.
 
 #### Fixed Bugs
 
-- 
+A number of bugs were fixed as part of the development process, including:
+- In the site deployed to Heroku, the custom CSS overriding MaterializeCSS was not being applied. This was due to the static files not being picked up in Heroku. This was resolved through the implementation of the Whitenoise plugin.
+- In the selection for a booking date, the datepicker would allow a user to select today, and potentially book a slot that has already passed. This has been fixed by creating a javascript variable for tomorrow's date, and setting that as the earliest selectable date.
+- When booking a room, if there was a booking for that room on that day, it would duplicate the time selection buttons for the number of bookings. This was solved by refactoring the code for bringing through the buttons to separate out the buttons for booked and not booked.
 
 ## Code Validation
 
 ### HTML 
 [W3C HTML Validator](https://validator.w3.org/)
+
+The HTML was validated using the above validator, by running each key page on the site and viewing the source. This was then pasted into the validator for testing.
 
 | Page | Exceptions | Comments |
 | --- | --- | --- |
@@ -332,7 +337,7 @@ TBC
 | Room Detail | None | N/A |
 | Contact | None | N/A |
 | Contact Confirmation | None | N/A |
-| Register Account | Tag closures in row 58 | The relevant tags are all closed, no exception identified |
+| Register Account | Tag closures in row 58 | Error arises due to a unordered list element being included within a paragraph element (with elements in between these tags being opened). This is code from Django forms and operates correctly. No issues noted. |
 | Log In | None | N/A |
 | Booking Page - Date Selection | None | N/A |
 | Booking Page - Time Selection | Duplicate IDs | Due to method of disabling booked slots. Functionality works as intended. |
@@ -381,33 +386,43 @@ The Python files above were pasted into the the Python Syntax checker. No except
 ## General Validator Checks
 
 ### [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
-Lighthouse is a Google open-source, automated tool for improving the quality of web pages, providing metrics on the pages. The key pages on Lock & Key were tested with the following results:
+Lighthouse is a Google open-source, automated tool for improving the quality of web pages, providing metrics on the pages. The key pages on Lock & Key were tested with the results as below for desktop and mobile. Note that these scores are estimates and can change depending on a number of factors, so may differ if run independently.
 
 Desktop:
 
 | Page | Performance | Accessibility | Best Practises | SEO |
 | --- | --- | --- | --- | --- |
-| Homepage | 72 | 97 | 83 | 80 |
-| Contact | 97 | 94 | 83 | 78 |
-| Room Detail | 86 | 97 | 83 | 80 |
-| Registration | 97 | 94 | 83 | 78 |
-| Log In | 97 | 94 | 83 | 78 |
-| Booking Date | 97 | 94 | 83 | 78 |
-| Booking Time | 97 | 94 | 83 | 78 |
-| My Bookings | 97 | 97 | 83 | 78 |
+| Homepage | 72 | 97 | 92 | 90 |
+| Contact | 97 | 94 | 92 | 89 |
+| Room Detail | 86 | 92 | 92 | 90 |
+| Registration | 97 | 94 | 92 | 89 |
+| Log In | 97 | 94 | 92 | 89 |
+| Booking Date | 97 | 94 | 92 | 89 |
+| Booking Time | 97 | 94 | 92 | 89 |
+| My Bookings | 97 | 97 | 92 | 89 |
 
 Mobile:
 
 | Page | Performance | Accessibility | Best Practises | SEO |
 | --- | --- | --- | --- | --- |
-| Homepage | 74 | 97 | 83 | 78 |
-| Contact | 77 | 94 | 83 | 75 |
-| Room Detail | 74 | 97 | 83 | 78 |
-| Registration | 77 | 94 | 83 | 78 |
-| Log In | 76 | 94 | 83 | 78 |
-| Booking Date | 98 | 94 | 83 | 75 |
-| Booking Time | 99 | 94 | 83 | 75 |
-| My Bookings | 76 | 96 | 83 | 76 |
+| Homepage | 74 | 97 | 92 | 87 |
+| Contact | 77 | 94 | 92 | 85 |
+| Room Detail | 74 | 97 | 92 | 86 |
+| Registration | 77 | 94 | 92 | 87 |
+| Log In | 76 | 94 | 92 | 86 |
+| Booking Date | 98 | 94 | 92 | 85 |
+| Booking Time | 99 | 94 | 92 | 85 |
+| My Bookings | 76 | 96 | 92 | 85 |
+
+The key observations from Lighthouse were as follows:
+
+**Performance:** Slow loading of images, with the use of png files. The observation suggests the use WebP or JPEG. It should be noted that some of the images are not loaded for mobile users which improves the performances. The performance figures are generally good with no critical issues identified.
+
+**Accessibility:** Some background and foreground colours not having sufficient contrast ratios. This is discussed in further detail in the Wave section below. The scores for accessibility are all very high, so no critical issues have arisen.
+
+**Best Practises:** No significant or critical issues identified across all pages.
+
+**SEO:** Uncrawable links. This primarily relates to the burger menu when in mobile view which does not have a href due to the way it is built in MaterializeCSS. This does not need to be crawable. No critical issue identified here.
 
 These scores show there are no vital or significant issues with the performance, accessibility, practise or SEO of the website.
 
@@ -426,6 +441,16 @@ Wave is an evaluation tool that helps authors make their web content more access
 | My Bookings | 0 | 0 |  |
 
 No significant accessibility issues identified from the testing performed.
+
+# Deployment
+
+This website was deployed to Heroku using the following steps:
+
+- Create a new Heroku app.
+- Set configuration variables in Heroku for the database (postgresql), cloudinary, and other required keys.
+- Link the Heroku app to the GitHub repository.
+- Select "Deploy".
+- Set "Automatic Deploys" to ensure the latest version is used when code is pushed to the repository.
 
 # Credits
 
