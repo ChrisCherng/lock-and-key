@@ -4,7 +4,7 @@
 
 ![The homepage of Lock & Key](https://res.cloudinary.com/chris-cherng/image/upload/v1663594264/Escape%20Room/ReadMe%20Images/main_xuqqjt.png)
 
-This is the website for Lock & Key Escape rooms providing information on the escape room experiences on offer and allowing users to make a booking for a game.
+This is the website for Lock & Key Escape rooms providing information on the escape room experiences on offer and allowing users to make a booking for a game as well as manage their bookings.
 
 An administration dashboard allows the administrators to create, amend and delete the information on each room, view bookings that have been made, and view any contact requests from users.
 
@@ -34,7 +34,7 @@ The following user stories have been created to ensure the goals of the users an
 | **User Story 006:** As a site user I want to be able to book an escape room on an available date and time. | Ability to book a room |
 | **User Story 007:** As a site user I want to be able to be able to view my bookings. | Ability to manage own bookings |
 | **User Story 008:** As a site user I want to be able to delete bookings I no longer need. | Ability to manage own bookings |
-| **User Story 009:** As a site user I want to be able to amend the timing of my booking. | Ability to manage own |
+| **User Story 009:** As a site user I want to be able to amend the timing of my booking. | Ability to manage own bookings |
 | **User Story 010:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | Attract potential customers |
 | **User Story 011:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | Manage customer bookings |
 | **User Story 012:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | Manage contact requests |
@@ -53,17 +53,18 @@ A user is a (potential) customer for Lock & Key. The user will need to register 
     - a navigation bar displaying the name of the company, along with links to contact the administrators and login.
     ![The navigation bar with "Lock & Key" and links to contact and login](https://res.cloudinary.com/chris-cherng/image/upload/v1666459793/Escape%20Room/ReadMe%20Images/navigation-normal_gakhmy.png)
 
-    - if the user is logged in, the navigation bar displays that they are logged in, and provides additional links to make a booking, My Bookings (to manage bookings), and logout.
+    - if the user is logged in, the navigation bar displays that they are logged in (by using their username), and provides additional links to make a booking, My Bookings (to manage bookings), and logout.
     ![he navigation bar with "Lock & Key" and links to contact, logout, book, manage bookings](https://res.cloudinary.com/chris-cherng/image/upload/v1666459866/Escape%20Room/ReadMe%20Images/navigation-loggedin_wdeczy.png)
 
     - a footer with the business address and social media links.
     ![The footer with the company address, links to social media, and copyright information](https://res.cloudinary.com/chris-cherng/image/upload/v1663592967/Escape%20Room/ReadMe%20Images/footer_wudad0.png)
 
-- All pages are responsive to difference devices including mobile, tablet and desktop.
+- All pages are responsive to different devices including mobile, tablet and desktop.
 
     ![The homepage on mobile showing the introductory messages](https://res.cloudinary.com/chris-cherng/image/upload/v1666460179/Escape%20Room/ReadMe%20Images/mobile_de13gv.png)
     
     - the navigation bar becomes a hamburger menu on mobile devices.
+
     ![The sidebar navigation on mobile](https://res.cloudinary.com/chris-cherng/image/upload/v1666464051/Escape%20Room/ReadMe%20Images/mobile-loggedin_kruron.png)
 
 - Home Page with:
@@ -81,6 +82,7 @@ A user is a (potential) customer for Lock & Key. The user will need to register 
 
 - Contact Page with:
     - a form to contact the site administrators.
+    - a confirmation page to confirm successful submission of the form.
     ![The contact form](https://res.cloudinary.com/chris-cherng/image/upload/v1663594011/Escape%20Room/ReadMe%20Images/contact-page_qq1dej.png)
 
 - Registration Page with:
@@ -91,18 +93,20 @@ A user is a (potential) customer for Lock & Key. The user will need to register 
 
 - Booking Page with:
     - a form to complete the relevant information for the booking.
-    - a list of times for the selected day and room which are and are not available to book.
+    - a list of times for the selected day and room which are and are not available to book (if unavailable, the button is greyed out and unselectable).
     - the time selected is highlighted in green.
+    - a confirmation page to confirm a successful booking.
     ![The booking form](https://res.cloudinary.com/chris-cherng/image/upload/v1666464254/Escape%20Room/ReadMe%20Images/booking-form_cftqec.png)
 
 - My Bookings Page with:
     - a list of upcoming bookings for the logged in account.
     - the ability to cancel or amend the time of upcoming bookings.
+    - a confirmation page to confirm that the cancellation of amendment was successful.
     ![The My Bookings page showing a list of upcoming bookings with buttons to cancel or amend each](https://res.cloudinary.com/chris-cherng/image/upload/v1666464877/Escape%20Room/ReadMe%20Images/my-bookings_kk2aap.png)
 
 ## Administrators
 
-An administrator is a manager of Lock & Key Escape Rooms. This requires the use of a superuser account username and password, as this is no public-facing information.
+An administrator is a manager of Lock & Key Escape Rooms. This requires the use of a superuser account username and password, as this is not public-facing information.
 
 - [Administration Page](https://lock-and-key-escape.herokuapp.com/admin/) with:
     - the ability to create, view, update and delete the escape room information visible on the public site.
@@ -113,6 +117,49 @@ An administrator is a manager of Lock & Key Escape Rooms. This requires the use 
 
     - the ability to view and delete any contact requests from users from the contact form.
     ![an image of the contact request admin page](https://res.cloudinary.com/chris-cherng/image/upload/v1663592366/Escape%20Room/ReadMe%20Images/admin-contact_dphbsy.png)
+
+# Design
+
+## Research
+
+To help with the design of the website, a number of other escape room sites were researched. This was used to understand what content is included and how it is laid out on each page. From this research, the following key elements were found on the majority of sites:
+
+- Eye-catching images used consistently across all parts of the site.
+- Clear up-front information on the escape rooms.
+- Simple navigation at the top.
+- Clean colours.
+
+These principles were used as the base for the initial design.
+
+## Wireframe Layouts
+
+Using the findings from the research, basic wireframes were drawn in Google Slides for the main pages.
+
+### Homepage
+
+![wireframe of the homepage using simple boxes for each section](https://res.cloudinary.com/chris-cherng/image/upload/v1666718349/Escape%20Room/ReadMe%20Images/wireframe-home_zf3kzi.png)
+
+The homepage sets the tone for the users and includes a clear navigation bar and eye-catching main image. An introductory section provides the key information for users, including those who have been to an escape room and those who have not.
+
+A section on who would enjoy the experience breaks up the page with more graphical elements.
+
+If the user is interested by this point, more information on the specific escape rooms can be found, with links to further detail.
+
+Finally a footer with the business address and contact information is included to assist users with these key logistical items.
+
+### Other Content
+
+![wireframe of the content pages using simple boxes for each section](https://res.cloudinary.com/chris-cherng/image/upload/v1666718349/Escape%20Room/ReadMe%20Images/wireframe-content_sa7ebw.png)
+
+This covers all sub-pages from the homepage, including login and booking. A clean simple layout would help the users not to be distracted from their purpose of using this page. The same navigation bar, main image and footer from the homepage is used in order to provide consistency for the user's experience, as well as providing easy access to the elements they may need from the navigation bar or footer.
+
+## Themes and Colours
+
+The overall styling of the website uses MaterializeCSS. This provides a simple, clean aesthetic to the website, as well as including a number of useful styling tools.
+
+![The Materialize colors for blue darken-3 and darken-4](https://res.cloudinary.com/chris-cherng/image/upload/v1666719832/Escape%20Room/ReadMe%20Images/materialize-blue_l3bjeg.png)
+
+The key colour used is the Materialize "blue darken-4" which is hex code #0d47a1. This is a deep blue that contrasts with the clean white of the majority of the site. Where a blue is needed, but this shade has already been used, "blue darken-3" (#1565c0) is used as a simple way to denote a difference, but without moving too far from the key business colour. For example, when making a booking, the time selection buttons use this slightly lighter shade of blue, to contrast the use of the main blue for the submit button. These colours work well with white text to give easily readable text.
 
 # Technology
 
@@ -161,6 +208,10 @@ Each user story started in the To Do list, and was moved through to In Progress 
 Google Sheets was used to assist with mapping out the data models:
 
 ![Google sheets with three tables for the different data models](https://res.cloudinary.com/chris-cherng/image/upload/v1663594518/Escape%20Room/ReadMe%20Images/models_qoewju.png)
+
+### Google Slides
+
+Google Slides was used for the initial wireframing for the website design. See the Design section above for more details.
 
 # Testing
 
@@ -422,7 +473,7 @@ The key observations from Lighthouse were as follows:
 
 **Best Practises:** No significant or critical issues identified across all pages.
 
-**SEO:** Uncrawable links. This primarily relates to the burger menu when in mobile view which does not have a href due to the way it is built in MaterializeCSS. This does not need to be crawable. No critical issue identified here.
+**SEO:** Uncrawlable links. This primarily relates to the burger menu when in mobile view which does not have a href due to the way it is built in MaterializeCSS. This does not need to be crawlable. No critical issue identified here.
 
 These scores show there are no vital or significant issues with the performance, accessibility, practise or SEO of the website.
 
